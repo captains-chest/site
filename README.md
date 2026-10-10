@@ -27,4 +27,4 @@ Requires Node 22+ and pnpm.
     pnpm run deploy            # build, then wrangler deploy (needs CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID)
 
 The old Cloudflare Pages project `captains-chest-site` is no longer attached to any domain; don't deploy to it.
-Proposed CI (build, Lighthouse budget, deploy) lives in `docs/ci/` until workflows can be pushed.
+CI (`.github/workflows/ci.yml`) builds, validates the HTML, runs axe and the Lighthouse budgets (`lighthouserc.*.json`) against a local Worker preview. Deploys stay manual (`pnpm run deploy`).
