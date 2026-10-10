@@ -1,17 +1,21 @@
-import { DOCUMENT } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { type IsActiveMatchOptions, RouterLink, RouterLinkActive } from '@angular/router';
 import { SiteNav } from '../site-nav/site-nav';
 
-const homePath = '/';
+const homeLinkActive: IsActiveMatchOptions = {
+  paths: 'exact',
+  queryParams: 'ignored',
+  matrixParams: 'ignored',
+  fragment: 'ignored',
+};
 
 @Component({
   selector: 'header[cc-site-header]',
-  imports: [SiteNav],
+  imports: [RouterLink, RouterLinkActive, SiteNav],
   templateUrl: './site-header.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'topnav' },
 })
 export class SiteHeader {
-  // Every link is a full page load, so the route is fixed for the lifetime of the page.
-  protected readonly isHome = inject(DOCUMENT).location.pathname === homePath;
+  protected readonly _homeLinkActive = homeLinkActive;
 }
