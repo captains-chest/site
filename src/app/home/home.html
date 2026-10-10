@@ -1,0 +1,19 @@
+<header>
+  <p class="eyebrow">Captain's Chest</p>
+  <h1>Small, focused tools, built with care.</h1>
+  <p class="lead">Captain's Chest is a home for open-source projects by Nicki Skipper Otte.</p>
+</header>
+<section id="projects" aria-labelledby="projects-heading">
+  <h2 id="projects-heading" class="eyebrow">Projects</h2>
+  @defer (on viewport; hydrate on viewport) {
+    <ul class="grid">
+      @for (project of projects; track project.slug) {
+        <li cc-project-card [project]="project"></li>
+      }
+    </ul>
+  } @placeholder (minimum 300ms) {
+    <div class="grid-placeholder" aria-hidden="true"></div>
+  } @loading (after 150ms; minimum 300ms) {
+    <div class="grid-placeholder" aria-hidden="true"></div>
+  }
+</section>

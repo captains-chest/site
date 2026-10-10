@@ -1,0 +1,6 @@
+<h2>{{ project().name }}</h2>
+<p>{{ project().description }}</p>
+<div class="links">
+  <a class="btn primary" [href]="project().primary.href">{{ project().primary.label }}<span class="sr-only"> ({{ project().name }})</span></a>
+  <a class="btn" [href]="project().sourceUrl">GitHub<span class="sr-only"> ({{ project().name }})</span></a>
+</div>

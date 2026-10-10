@@ -1,31 +1,8 @@
-<a class="skip" href="#projects">Skip to projects</a>
-<main>
-<nav class="topnav" aria-label="Captain's Chest">
-<ul>
-<li><a href="#projects" aria-current="page">Projects</a></li>
-<li><a href="https://play.captains-chest.com">Playground</a></li>
-<li><a href="https://school.captains-chest.com">School</a></li>
-</ul>
-</nav>
-<header>
-<p class="eyebrow">Captain's Chest</p>
-<h1>Small, focused tools, built with care.</h1>
-<p class="lead">Captain's Chest is a home for open-source projects by Nicki Skipper Otte.</p>
-</header>
-<section id="projects" aria-labelledby="ph">
-<h2 id="ph" class="eyebrow">Projects</h2>
-<ul class="grid">
-<li class="card">
-<h2>Material Symbols Rounded Icons</h2>
-<p>Publishable Angular standalone component libraries for Material Symbols Rounded icons, in outline and filled variants, with a Storybook catalog.</p>
-<div class="links"><a class="btn primary" href="https://icons.captains-chest.com">Browse icons</a><a class="btn" href="https://github.com/captains-chest/material-symbols-rounded-icons">GitHub</a></div>
-</li>
-<li class="card">
-<h2>Dictator</h2>
-<p>Minimal, local-only dictation for macOS. Press a shortcut, talk, and the text is typed into whatever field has focus, transcribed on-device.</p>
-<div class="links"><a class="btn primary" href="https://dictator.captains-chest.com">Download</a><a class="btn" href="https://github.com/captainDuckay/yet-another-dictator">GitHub</a></div>
-</li>
-</ul>
-</section>
-<footer>© Captain's Chest · <a href="https://github.com/captains-chest">github.com/captains-chest</a></footer>
-</main>
+<a class="skip" href="#main">Skip to content</a>
+<div class="shell">
+  <nav cc-site-nav></nav>
+  <main id="main" tabindex="-1">
+    <router-outlet />
+  </main>
+  <footer>© Captain's Chest · <a href="https://github.com/captains-chest">github.com/captains-chest</a></footer>
+</div>
