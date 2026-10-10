@@ -1,0 +1,41 @@
+# Proposed .github/workflows/ci.yml (not active: pushing workflows needs the gh `workflow` scope).
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: test -f dist/site/browser/index.html && test -f dist/site/server/server.mjs
+      - name: Lighthouse CI (budget: 100 in every category)
+        run: |
+          (pnpm exec wrangler dev --port 8787 --ip 127.0.0.1 &) && sleep 10
+          pnpm dlx @lhci/cli@0.15 autorun --config=docs/ci/lighthouserc.json
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
