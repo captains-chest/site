@@ -1,7 +1,6 @@
 export interface SkillDoc {
   readonly file: string;
   readonly sections: readonly string[];
-  readonly html: string;
   readonly sourceUrl: string;
 }
 

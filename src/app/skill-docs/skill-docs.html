@@ -1,8 +1,8 @@
 <h2 id="docs-heading" class="eyebrow">The full text</h2>
-@for (doc of docs(); track doc.file) {
+@for (doc of docs(); track doc.file; let index = $index) {
   <details class="card doc">
     <summary>{{ doc.file }}</summary>
-    <div class="prose" [innerHTML]="doc.html"></div>
+    <div class="prose" [innerHTML]="html(index) ?? ''"></div>
     <p><a [href]="doc.sourceUrl">{{ doc.file }} on GitHub</a></p>
   </details>
 }

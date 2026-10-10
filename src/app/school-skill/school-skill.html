@@ -34,7 +34,7 @@
       <p class="links"><a class="btn" [href]="skill.sourceUrl">View the source on GitHub</a></p>
     </section>
     @defer (on viewport; hydrate never) {
-      <section cc-skill-docs [docs]="skill.docs"></section>
+      <section cc-skill-docs [slug]="skill.slug" [docs]="skill.docs"></section>
     } @placeholder (minimum 300ms) {
       <div class="grid-placeholder" aria-hidden="true"></div>
     }
