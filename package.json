@@ -5,7 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build && rm -f dist/site/browser/index.csr.html",
-    "watch": "ng build --watch --configuration development"
+    "watch": "ng build --watch --configuration development",
+    "deploy": "pnpm run build && wrangler deploy",
+    "preview": "pnpm run build && wrangler dev"
   },
   "private": true,
   "packageManager": "pnpm@12.10.1",
@@ -27,6 +29,7 @@
     "@angular/compiler-cli": "^22.2.0",
     "@types/node": "^22.12.0",
     "prettier": "^3.8.1",
-    "typescript": "~6.0.2"
+    "typescript": "~6.0.2",
+    "wrangler": "^4.149.0"
   }
 }

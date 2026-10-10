@@ -1,0 +1,20 @@
+// Cloudflare Worker "captains-chest-site": Angular SSR at the edge plus static assets.
+// Deploy: pnpm build && pnpm exec wrangler deploy
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "captains-chest-site",
+  "main": "dist/site/server/server.mjs",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "dist/site/browser",
+    "binding": "ASSETS",
+    // The Worker sees every request first, so it can redirect www, block *.md and set headers.
+    "run_worker_first": true,
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  },
+  "alias": { "xhr2": "./worker/xhr2-stub.mjs" },
+  "workers_dev": true,
+  "observability": { "enabled": true }
+}
