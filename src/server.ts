@@ -9,6 +9,7 @@ interface AssetsBinding {
 interface RewriterElement {
   getAttribute(name: string): string | null;
   setAttribute(name: string, value: string): void;
+  remove(): void;
 }
 declare class HTMLRewriter {
   on(selector: string, handlers: { element(element: RewriterElement): void }): HTMLRewriter;
@@ -63,7 +64,10 @@ const applyNonce = (response: Response, nonce: string): Response =>
   new HTMLRewriter()
     .on(`[nonce="${noncePlaceholder}"]`, { element: (element) => element.setAttribute('nonce', nonce) })
     .on('[ngcspnonce]', { element: (element) => element.setAttribute('ngcspnonce', nonce) })
-    .on('script:not([nonce]), link[rel="modulepreload"]:not([nonce])', {
+    // Pages are prerendered and hydrate incrementally, so route chunks aren't needed for first paint;
+    // preloading them competes with the HTML and main bundle on slow mobile links (~0.4 s FCP in Lighthouse).
+    .on('link[rel="modulepreload"]', { element: (element) => element.remove() })
+    .on('script:not([nonce])', {
       element: (element) => element.setAttribute('nonce', nonce),
     })
     .transform(response);
