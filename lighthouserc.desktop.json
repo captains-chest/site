@@ -2,7 +2,8 @@
   "ci": {
     "collect": {
       "url": [
-        "http://127.0.0.1:8787/"
+        "http://127.0.0.1:8787/",
+        "http://127.0.0.1:8787/school/skills/project-code-standards"
       ],
       "numberOfRuns": 3,
       "settings": {
@@ -55,9 +56,9 @@
           }
         ],
         "resource-summary:script:size": [
-          "warn",
+          "error",
           {
-            "maxNumericValue": 90000
+            "maxNumericValue": 110000
           }
         ]
       }

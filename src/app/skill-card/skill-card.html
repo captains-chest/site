@@ -1,0 +1,6 @@
+<h3 [id]="headingId()">{{ title() }}</h3>
+<p>{{ skill().purpose }}</p>
+<div class="links">
+  <a class="btn primary" [routerLink]="path()">Read the skill<span class="sr-only"> {{ title() }}</span></a>
+  <a class="btn" [href]="skill().sourceUrl">Source<span class="sr-only"> ({{ title() }})</span></a>
+</div>

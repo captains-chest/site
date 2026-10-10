@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "force-clarity",
+    "title": "Clarity is forced, not hoped for",
+    "summary": "Vague answers get challenged until they are specific, testable, bounded and traceable. Contradictions are called out immediately, and work does not move on until each area meets the bar.",
+    "sources": ["project-kickoff-grill"]
+  },
+  {
+    "slug": "pure-core",
+    "title": "A pure core, with effects at the edges",
+    "summary": "Domain logic lives in pure functions in the nearest domain-local module. Framework wiring, API calls, persistence and I/O stay at the boundaries and call into that logic.",
+    "sources": ["project-code-standards"]
+  },
+  {
+    "slug": "name-for-intent",
+    "title": "Name things for what they mean",
+    "summary": "Artifacts are named for their responsibility, not their framework role: UserCard, not UserCardComponent; SessionStore, not a generic service. Numbers that carry meaning get a name, with units.",
+    "sources": ["project-code-standards"]
+  },
+  {
+    "slug": "only-where-it-fits",
+    "title": "Standards apply only where they fit",
+    "summary": "Map the work areas a change touches before choosing conventions. A technology's rules apply only to work in that technology, and established conventions are kept unless a migration is in scope.",
+    "sources": ["project-code-standards"]
+  },
+  {
+    "slug": "decide-and-record",
+    "title": "Decide, then write it down",
+    "summary": "Every project starts with a brief: at least two credible options, a chosen architecture with its consequences, a decision log of what was chosen, rejected and deferred, and scope guardrails for later.",
+    "sources": ["project-kickoff-grill"]
+  },
+  {
+    "slug": "modern-angular",
+    "title": "Modern Angular, our own building blocks",
+    "summary": "The component is the element it represents, every clear UI region gets its own component in its own folder, Signal Forms and resources are the defaults, and icons come from the Captain's Chest Material Symbols packages.",
+    "sources": ["project-code-standards"]
+  },
+  {
+    "slug": "leave-it-cleaner",
+    "title": "Leave it cleaner, close to the change",
+    "summary": "Make safe, relevant cleanups in the area you are already touching, keep them near the task, and track them separately from the main change, in their own commit.",
+    "sources": ["project-code-standards"]
+  }
+]

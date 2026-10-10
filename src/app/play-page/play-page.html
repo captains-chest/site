@@ -1,0 +1,19 @@
+<header>
+  <p class="eyebrow">Captain's Chest · Playground</p>
+  <h1>The Playground</h1>
+  <p class="lead">Browser games by Nicki Skipper Otte.</p>
+</header>
+<section id="games" aria-labelledby="games-heading">
+  <h2 id="games-heading" class="eyebrow">Games</h2>
+  @defer (on viewport; hydrate on viewport) {
+    <ul class="grid">
+      @for (game of games; track game.slug) {
+        <li><article cc-game-card [game]="game"></article></li>
+      }
+    </ul>
+  } @placeholder (minimum 300ms) {
+    <div class="grid-placeholder" aria-hidden="true"></div>
+  } @loading (after 150ms; minimum 300ms) {
+    <div class="grid-placeholder" aria-hidden="true"></div>
+  }
+</section>

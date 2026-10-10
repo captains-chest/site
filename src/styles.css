@@ -27,3 +27,16 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--accent);outline-offse
 .grid>li{display:grid}
 .card h3{font-size:1.35rem;line-height:1.6;margin:0 0 .4rem}
 footer p{margin:0}footer small{font-size:inherit}
+.plain-list{list-style:none;padding:0;margin:0}
+.stack{display:grid;gap:1.25rem}.stack>li{display:grid}
+.section{margin-top:3rem}
+.card p:last-child{margin-bottom:0}.sources{font-size:.92rem}
+.lead+.links{margin-top:-1.5rem}
+code,pre{font:.9em ui-monospace,SFMono-Regular,Menlo,monospace}
+pre{background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:.85rem 1rem;overflow-x:auto}
+details.doc{margin-top:1rem}details.doc summary{cursor:pointer;font-weight:600}
+.prose{color:var(--fg)}.prose h3{font-size:1.4rem}.prose h4{font-size:1.15rem;margin-top:1.5rem}
+.prose table{border-collapse:collapse;display:block;overflow-x:auto}.prose td,.prose th{border:1px solid var(--line);padding:.35rem .6rem}
+.credits{margin-top:2.5rem;color:var(--muted)}.credits small{font-size:.9rem}
+.grid-placeholder.tall{min-height:40rem}
+.eyebrow a{color:inherit}

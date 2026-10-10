@@ -8,6 +8,12 @@ const axeSource = readFileSync(require.resolve('axe-core/axe.min.js'), 'utf8');
 const baseUrl = process.env.PREVIEW_URL ?? 'http://127.0.0.1:8787';
 const pages = [
   { path: '/', status: 200 },
+  { path: '/play', status: 200 },
+  { path: '/school', status: 200 },
+  { path: '/school/way', status: 200 },
+  { path: '/school/skills', status: 200 },
+  { path: '/school/skills/project-code-standards', status: 200 },
+  { path: '/school/skills/not-a-skill', status: 404 },
   { path: '/this-page-does-not-exist', status: 404 },
 ];
 const settleMs = 1000;

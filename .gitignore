@@ -49,3 +49,7 @@ Thumbs.db
 # Lighthouse CI output
 .lighthouseci
 wrangler.log
+
+# School content fetched and generated at build time
+/content
+/src/content/generated

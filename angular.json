@@ -22,6 +22,10 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/content/generated/public"
               }
             ],
             "styles": [
@@ -47,7 +51,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "280kB",
+                  "maximumWarning": "320kB",
                   "maximumError": "350kB"
                 },
                 {

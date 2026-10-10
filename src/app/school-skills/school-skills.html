@@ -1,0 +1,14 @@
+<header>
+  <p class="eyebrow"><a routerLink="/school">School</a> · Skills</p>
+  <h1>The techniques</h1>
+  <p class="lead">Each skill teaches an agent one part of the Captain's Chest way.</p>
+</header>
+<section aria-labelledby="skill-list-heading">
+  <h2 id="skill-list-heading" class="sr-only">All skills</h2>
+  <ul class="grid plain-list">
+    @for (skill of skills; track skill.slug) {
+      <li><article cc-skill-card [skill]="skill"></article></li>
+    }
+  </ul>
+</section>
+<p cc-school-credits></p>

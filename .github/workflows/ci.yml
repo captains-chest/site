@@ -43,5 +43,7 @@ jobs:
           cat wrangler.log; exit 1
       - name: axe (light and dark, home and 404)
         run: pnpm check:axe
+      - name: Client navigation (before and after hydration)
+        run: pnpm check:navigation
       - name: Lighthouse CI budget (mobile, then desktop)
         run: pnpm check:lighthouse
