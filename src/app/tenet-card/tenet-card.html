@@ -1,0 +1,9 @@
+<p class="eyebrow">Tenet {{ number() }}</p>
+<h3 [id]="tenet().slug + '-title'">{{ tenet().title }}</h3>
+<p>{{ tenet().summary }}</p>
+<p class="sources">
+  From:
+  @for (source of tenet().sources; track source; let last = $last) {
+    <a [href]="skillPath(source)">{{ displayName(source) }}</a>@if (!last) {, }
+  }
+</p>

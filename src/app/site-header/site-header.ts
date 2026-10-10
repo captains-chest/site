@@ -1,8 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { SiteNav } from '../site-nav/site-nav';
-
-const homePath = '/';
+import { isSectionRoot, sectionOf } from './functions';
 
 @Component({
   selector: 'header[cc-site-header]',
@@ -13,5 +12,7 @@ const homePath = '/';
 })
 export class SiteHeader {
   // Every link is a full page load, so the route is fixed for the lifetime of the page.
-  protected readonly isHome = inject(DOCUMENT).location.pathname === homePath;
+  readonly #pathname = inject(DOCUMENT).location.pathname;
+  protected readonly section = sectionOf(this.#pathname);
+  protected readonly isSectionRoot = isSectionRoot(this.#pathname);
 }

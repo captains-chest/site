@@ -1,0 +1,49 @@
+@if (skill(); as skill) {
+  <header>
+    <p class="eyebrow"><a href="/school">School</a> · <a href="/school/skills">Skills</a></p>
+    <h1>{{ title() }}</h1>
+    <p class="lead">{{ skill.purpose }}</p>
+  </header>
+  <div class="stack">
+    @if (skill.whenToUse) {
+      <section class="card" aria-labelledby="when">
+        <h2 id="when">When to use it</h2>
+        <p>{{ skill.whenToUse }}</p>
+      </section>
+    }
+    <section class="card" aria-labelledby="principles">
+      <h2 id="principles">Principles it encodes</h2>
+      <ul class="plain">
+        @for (principle of principles(); track principle) {
+          <li>{{ principle }}</li>
+        }
+      </ul>
+      @if (tenets().length) {
+        <p class="sources">
+          Part of the Way:
+          @for (tenet of tenets(); track tenet.slug; let last = $last) {
+            <a [href]="tenetPath(tenet.slug)">{{ tenet.title }}</a>@if (!last) {, }
+          }
+        </p>
+      }
+    </section>
+    <section class="card" aria-labelledby="use">
+      <h2 id="use">How to use it</h2>
+      <p>Install it into your agent with the skills manager:</p>
+      <pre><code>{{ skill.install }}</code></pre>
+      <p class="links"><a class="btn" [href]="skill.sourceUrl">View the source on GitHub</a></p>
+    </section>
+    @defer (on viewport; hydrate never) {
+      <section cc-skill-docs [docs]="skill.docs"></section>
+    } @placeholder (minimum 300ms) {
+      <div class="grid-placeholder" aria-hidden="true"></div>
+    }
+  </div>
+  <p cc-school-credits></p>
+} @else {
+  <header>
+    <p class="eyebrow">404</p>
+    <h1>{{ title() }}</h1>
+    <p class="lead">There's no skill by that name. <a href="/school/skills">See all skills</a>.</p>
+  </header>
+}

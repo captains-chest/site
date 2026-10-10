@@ -1,0 +1,28 @@
+{
+  "project-code-standards": {
+    "principles": [
+      "Map every affected work area and its language and framework before writing code.",
+      "General standards apply everywhere; TypeScript and Angular standards apply only to matching work.",
+      "Prefer pure functions for domain logic and keep side effects at system boundaries.",
+      "Prefer declarative, data-driven control flow when it is at least as clear.",
+      "Name numeric literals that carry domain meaning, including units.",
+      "TypeScript: pure logic in a domain functions.ts; interfaces in models.ts, type aliases in types.ts, constants in constants.ts.",
+      "TypeScript: # private members, _ for protected, readonly by default.",
+      "Angular: cut a child component at each clear UI region, and let the host be the element of intent.",
+      "Angular: one folder per component with separate files, and no framework-role suffixes in names.",
+      "Angular: Signal Forms and httpResource/resource by default where available.",
+      "Angular: icons from @captains-chest/material-symbols-rounded-icons (outline and filled).",
+      "Boy Scout cleanup, kept close to the change and committed separately."
+    ]
+  },
+  "project-kickoff-grill": {
+    "principles": [
+      "Be direct and intellectually honest; do not soften unclear thinking.",
+      "Ask one focused question at a time, with a visible checklist of what remains.",
+      "Align 12 areas, from problem statement to milestones: capture a draft, challenge the gaps, confirm the decision.",
+      "An area is aligned only when it is specific, testable, bounded and traceable.",
+      "Push for ambition and meaningful outcomes, not just activity.",
+      "Finish with PROJECT_BRIEF.md: a decision log, open questions with owners, and scope guardrails."
+    ]
+  }
+}

@@ -1,2 +1,2 @@
-<a class="brand" href="/" [attr.aria-current]="isHome ? 'page' : null">Captain's Chest</a>
-<nav cc-site-nav></nav>
+<a class="brand" href="/" [attr.aria-current]="section === 'home' ? 'page' : null">Captain's Chest</a>
+<nav cc-site-nav [section]="section" [isSectionRoot]="isSectionRoot"></nav>

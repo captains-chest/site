@@ -9,5 +9,5 @@
 
 ## More
 
-- [Playground](https://play.captains-chest.com): browser games.
-- [School of the Captain's Chest](https://school.captains-chest.com): the agent skills that describe how Captain's Chest codes and works.
+- [Playground](https://captains-chest.com/play): browser games.
+- [School of the Captain's Chest](https://captains-chest.com/school): the agent skills that describe how Captain's Chest codes and works.
