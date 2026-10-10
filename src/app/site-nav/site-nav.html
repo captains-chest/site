@@ -1,9 +1,5 @@
 <ul>
-  <li><a href="/#projects">Projects</a></li>
-  <li>
-    <a href="/play" [attr.aria-current]="section() === 'play' ? (isSectionRoot() ? 'page' : 'true') : null">Playground</a>
-  </li>
-  <li>
-    <a href="/school" [attr.aria-current]="section() === 'school' ? (isSectionRoot() ? 'page' : 'true') : null">School</a>
-  </li>
+  <li><a routerLink="/" fragment="projects">Projects</a></li>
+  <li><a routerLink="/play" routerLinkActive [routerLinkActiveOptions]="_sectionActive" ariaCurrentWhenActive="page">Playground</a></li>
+  <li><a routerLink="/school" routerLinkActive [routerLinkActiveOptions]="_sectionActive" ariaCurrentWhenActive="page">School</a></li>
 </ul>

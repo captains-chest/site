@@ -1,6 +1,6 @@
 @if (skill(); as skill) {
   <header>
-    <p class="eyebrow"><a href="/school">School</a> · <a href="/school/skills">Skills</a></p>
+    <p class="eyebrow"><a routerLink="/school">School</a> · <a routerLink="/school/skills">Skills</a></p>
     <h1>{{ title() }}</h1>
     <p class="lead">{{ skill.purpose }}</p>
   </header>
@@ -22,7 +22,7 @@
         <p class="sources">
           Part of the Way:
           @for (tenet of tenets(); track tenet.slug; let last = $last) {
-            <a [href]="tenetPath(tenet.slug)">{{ tenet.title }}</a>@if (!last) {, }
+            <a routerLink="/school/way" [fragment]="tenet.slug">{{ tenet.title }}</a>@if (!last) {, }
           }
         </p>
       }
@@ -44,6 +44,6 @@
   <header>
     <p class="eyebrow">404</p>
     <h1>{{ title() }}</h1>
-    <p class="lead">There's no skill by that name. <a href="/school/skills">See all skills</a>.</p>
+    <p class="lead">There's no skill by that name. <a routerLink="/school/skills">See all skills</a>.</p>
   </header>
 }

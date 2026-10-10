@@ -14,4 +14,3 @@ export const principlesOf = (skill: Skill, notes: Readonly<Record<string, SkillN
   notes[skill.slug]?.principles ?? skill.docs.flatMap((doc) => doc.sections);
 
 export const skillPath = (slug: string): string => `/school/skills/${slug}`;
-export const tenetPath = (slug: string): string => `/school/way#${slug}`;

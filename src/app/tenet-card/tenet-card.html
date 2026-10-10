@@ -4,6 +4,6 @@
 <p class="sources">
   From:
   @for (source of tenet().sources; track source; let last = $last) {
-    <a [href]="skillPath(source)">{{ displayName(source) }}</a>@if (!last) {, }
+    <a [routerLink]="skillPath(source)">{{ displayName(source) }}</a>@if (!last) {, }
   }
 </p>

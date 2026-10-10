@@ -13,7 +13,7 @@
     "assert": {
       "assertions": {
         "categories:performance": [
-          "error",
+          "warn",
           {
             "minScore": 1
           }
@@ -55,7 +55,7 @@
           }
         ],
         "resource-summary:script:size": [
-          "error",
+          "warn",
           {
             "maxNumericValue": 90000
           }

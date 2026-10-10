@@ -1,13 +1,21 @@
 import { type ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideClientHydration, withEventReplay, withIncrementalHydration } from '@angular/platform-browser';
-import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { provideRouter, TitleStrategy, withComponentInputBinding, withInMemoryScrolling } from '@angular/router';
 import { routes } from './app.routes';
+import { PageTitleStrategy } from './seo/page-title-strategy';
 
 // Zoneless change detection is the default in this Angular version (no zone.js is loaded).
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideClientHydration(withIncrementalHydration(), withEventReplay()),
-    provideRouter(routes, withComponentInputBinding()),
+    // In-app links replace full page loads, so the router scrolls to fragments and back to the top.
+    provideRouter(
+      routes,
+      withComponentInputBinding(),
+      withInMemoryScrolling({ anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled' }),
+    ),
+    // Every navigation, on the server and in the browser, writes the route's title and meta tags.
+    { provide: TitleStrategy, useClass: PageTitleStrategy },
   ],
 };

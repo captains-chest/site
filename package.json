@@ -9,7 +9,8 @@
     "deploy": "pnpm run build && wrangler deploy",
     "preview": "pnpm run build && wrangler dev",
     "check:axe": "node scripts/ci/axe.mjs",
-    "check:html": "java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only --filterpattern \".*Attribute \u201c(ngh|cc-[a-z-]+)\u201d not allowed.*\" --skip-non-html dist/site/browser dist/site/server/index.server.html",
+    "check:navigation": "node scripts/ci/navigation.mjs",
+    "check:html": "java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only --filterpattern \".*Attribute \u201c(ngh|jsaction|routerlink|routerlinkactive|ariacurrentwhenactive|fragment|cc-[a-z-]+)\u201d not allowed.*\" --skip-non-html dist/site/browser dist/site/server/index.server.html",
     "check:lighthouse": "lhci autorun --config=lighthouserc.mobile.json && lhci autorun --config=lighthouserc.desktop.json",
     "content": "node scripts/generate-skills.mjs"
   },

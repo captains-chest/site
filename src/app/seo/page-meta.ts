@@ -13,12 +13,15 @@ export class PageMeta {
   readonly #title = inject(Title);
 
   set(page: PageMetadata): void {
-    const url = absoluteUrl(page.path);
+    const url = page.path === undefined ? undefined : absoluteUrl(page.path);
     this.#title.setTitle(page.title);
+    if (page.noindex) this.#meta.updateTag({ name: 'robots', content: 'noindex' });
+    else this.#meta.removeTag('name="robots"');
     this.#meta.updateTag({ name: 'description', content: page.description });
     this.#meta.updateTag({ property: 'og:title', content: page.title });
     this.#meta.updateTag({ property: 'og:description', content: page.description });
-    this.#meta.updateTag({ property: 'og:url', content: url });
+    if (url === undefined) this.#meta.removeTag('property="og:url"');
+    else this.#meta.updateTag({ property: 'og:url', content: url });
     this.#meta.updateTag({ property: 'og:image', content: ogImage });
     this.#meta.updateTag({ property: 'og:site_name', content: siteName });
     this.#meta.updateTag({ name: 'twitter:title', content: page.title });
@@ -27,8 +30,12 @@ export class PageMeta {
     this.#setBreadcrumbs(page.breadcrumbs);
   }
 
-  #setCanonical(url: string): void {
+  #setCanonical(url: string | undefined): void {
     const head = this.#document.head;
+    if (url === undefined) {
+      head.querySelector('link[rel="canonical"]')?.remove();
+      return;
+    }
     const link = head.querySelector<HTMLLinkElement>('link[rel="canonical"]') ?? head.appendChild(this.#document.createElement('link'));
     link.rel = 'canonical';
     link.href = url;

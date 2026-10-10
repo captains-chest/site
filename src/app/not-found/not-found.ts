@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject, RESPONSE_INIT } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
 
 const notFoundStatus = 404;
 
 @Component({
   selector: 'cc-not-found',
+  imports: [RouterLink],
   templateUrl: './not-found.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -14,7 +15,5 @@ export class NotFound {
     if (responseInit) {
       responseInit.status = notFoundStatus;
     }
-    inject(Title).setTitle("Page not found · Captain's Chest");
-    inject(Meta).updateTag({ name: 'robots', content: 'noindex' });
   }
 }
