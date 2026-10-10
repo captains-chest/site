@@ -8,7 +8,7 @@
   @defer (on viewport; hydrate on viewport) {
     <ul class="grid">
       @for (project of projects; track project.slug) {
-        <li cc-project-card [project]="project"></li>
+        <li><article cc-project-card [project]="project"></article></li>
       }
     </ul>
   } @placeholder (minimum 300ms) {

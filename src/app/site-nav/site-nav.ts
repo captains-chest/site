@@ -4,6 +4,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'nav[cc-site-nav]',
   templateUrl: './site-nav.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'topnav', 'aria-label': "Captain's Chest" },
+  host: { 'aria-label': 'Main' },
 })
 export class SiteNav {}

@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SiteNav } from './site-nav/site-nav';
+import { SiteFooter } from './site-footer/site-footer';
+import { SiteHeader } from './site-header/site-header';
 
 @Component({
   selector: 'cc-root',
-  imports: [RouterOutlet, SiteNav],
+  imports: [RouterOutlet, SiteHeader, SiteFooter],
   templateUrl: './app.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
