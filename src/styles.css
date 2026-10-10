@@ -17,3 +17,5 @@ a{color:var(--accent)}a:focus-visible{outline:3px solid var(--accent);outline-of
 .btn.big{font-size:1.1rem;padding:.85rem 1.5rem}
 ul.plain{padding-left:1.2rem;color:var(--muted)}
 footer{margin-top:4rem;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);padding-top:1.25rem}
+.topnav{margin:-2rem 0 3rem}.topnav ul{display:flex;flex-wrap:wrap;gap:1.25rem;list-style:none;margin:0;padding:0}
+.topnav a{color:var(--muted);font-weight:600;text-decoration:none}.topnav a:hover,.topnav a[aria-current=page]{color:var(--accent)}
