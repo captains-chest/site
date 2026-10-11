@@ -4,13 +4,17 @@
   <p class="lead">Captain's Chest is a home for open-source projects by CaptainDuckay.</p>
 </header>
 <section id="projects" aria-label="Projects">
-  @defer (on viewport; hydrate on viewport) {
+  @defer (on immediate; hydrate on viewport) {
     @for (project of _projects; track project.slug) {
       <article cc-project-card [project]="project"></article>
     }
-  } @placeholder (minimum 300ms) {
-    <div class="grid-placeholder" aria-hidden="true"></div>
-  } @loading (after 150ms; minimum 300ms) {
-    <div class="grid-placeholder" aria-hidden="true"></div>
+  } @placeholder {
+    @for (project of _projects; track project.slug) {
+      <div class="card-skeleton" aria-hidden="true"></div>
+    }
+  } @loading {
+    @for (project of _projects; track project.slug) {
+      <div class="card-skeleton" aria-hidden="true"></div>
+    }
   }
 </section>

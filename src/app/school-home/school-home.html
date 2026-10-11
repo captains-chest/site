@@ -13,14 +13,24 @@
 </header>
 <section aria-labelledby="tenets-heading" class="section">
   <h2 id="tenets-heading" class="eyebrow">The tenets</h2>
-  @defer (on viewport; hydrate never) {
+  @defer (on immediate; hydrate never) {
     <ol class="grid plain-list">
       @for (tenet of tenets; track tenet.slug; let index = $index) {
         <li><article cc-tenet-card [tenet]="tenet" [number]="index + 1"></article></li>
       }
     </ol>
-  } @placeholder (minimum 300ms) {
-    <div class="grid-placeholder tall" aria-hidden="true"></div>
+  } @placeholder {
+    <ol class="grid plain-list" aria-hidden="true">
+      @for (tenet of tenets; track tenet.slug) {
+        <li><div class="card-skeleton tenet"></div></li>
+      }
+    </ol>
+  } @loading {
+    <ol class="grid plain-list" aria-hidden="true">
+      @for (tenet of tenets; track tenet.slug) {
+        <li><div class="card-skeleton tenet"></div></li>
+      }
+    </ol>
   }
 </section>
 <section aria-labelledby="how-heading" class="section card">
