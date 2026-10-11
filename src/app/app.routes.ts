@@ -88,6 +88,16 @@ export const routes: Routes = [
     data: meta(skillMeta),
   },
   {
+    path: 'dictator/privacy',
+    loadComponent: () => import('./dictator-privacy/dictator-privacy').then((m) => m.DictatorPrivacy),
+    title: `Dictator privacy policy · ${siteName}`,
+    data: meta({
+      description: 'Dictator for Android and iOS collects no data: dictation runs offline, on the device.',
+      path: '/dictator/privacy',
+      breadcrumbs: [home, { name: 'Dictator privacy policy', path: '/dictator/privacy' }],
+    }),
+  },
+  {
     path: '**',
     loadComponent: () => import('./not-found/not-found').then((m) => m.NotFound),
     title: notFoundTitle,
