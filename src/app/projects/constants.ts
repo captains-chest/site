@@ -15,6 +15,6 @@ export const projects: readonly Project[] = [
     description:
       'Minimal, local-only dictation for macOS. Press a shortcut, talk, and the text is typed into whatever field has focus, transcribed on-device.',
     primary: { label: 'Download', href: 'https://dictator.captains-chest.com' },
-    sourceUrl: 'https://github.com/captainDuckay/yet-another-dictator',
+    sourceUrl: 'https://github.com/captains-chest/yet-another-dictator',
   },
 ];
