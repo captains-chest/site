@@ -1,16 +1,13 @@
-<header>
-  <p class="eyebrow">Captain's Chest</p>
+<header class="poster">
+  <p class="eyebrow">Open seas</p>
   <h1>Small, focused tools, built with care.</h1>
   <p class="lead">Captain's Chest is a home for open-source projects by CaptainDuckay.</p>
 </header>
-<section id="projects" aria-labelledby="projects-heading">
-  <h2 id="projects-heading" class="eyebrow">Projects</h2>
+<section id="projects" aria-label="Projects">
   @defer (on viewport; hydrate on viewport) {
-    <ul class="grid">
-      @for (project of projects; track project.slug) {
-        <li><article cc-project-card [project]="project"></article></li>
-      }
-    </ul>
+    @for (project of _projects; track project.slug) {
+      <article cc-project-card [project]="project"></article>
+    }
   } @placeholder (minimum 300ms) {
     <div class="grid-placeholder" aria-hidden="true"></div>
   } @loading (after 150ms; minimum 300ms) {
