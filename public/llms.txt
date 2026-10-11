@@ -1,6 +1,6 @@
 # Captain's Chest
 
-> Captain's Chest is a home for open-source projects by Nicki Skipper Otte.
+> Captain's Chest is a home for open-source projects by CaptainDuckay.
 
 ## Projects
 

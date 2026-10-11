@@ -38,14 +38,14 @@ export const routes: Routes = [
     path: '',
     component: Home,
     title: siteName,
-    data: meta({ description: "Captain's Chest: small, focused open-source tools by Nicki Skipper Otte.", path: '/' }),
+    data: meta({ description: "Captain's Chest: small, focused open-source tools by CaptainDuckay.", path: '/' }),
   },
   {
     path: 'play',
     loadComponent: () => import('./play-page/play-page').then((m) => m.PlayPage),
     title: `Playground · ${siteName}`,
     data: meta({
-      description: 'Browser games by Nicki Skipper Otte.',
+      description: 'Browser games by CaptainDuckay.',
       path: '/play',
       breadcrumbs: [home, { name: 'Playground', path: '/play' }],
     }),

@@ -1,7 +1,7 @@
 {
   "name": "Captain's Chest",
   "short_name": "Captain's Chest",
-  "description": "Small, focused open-source tools by Nicki Skipper Otte.",
+  "description": "Small, focused open-source tools by CaptainDuckay.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
