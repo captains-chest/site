@@ -1,0 +1,76 @@
+:host {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.35rem 1.5rem 0.75rem;
+}
+
+.poster {
+  margin-left: auto;
+  max-width: 24rem;
+}
+
+:host .eyebrow {
+  color: #8fd06a;
+}
+
+:host h1 {
+  max-width: 11ch;
+  margin: 0.35rem 0 0 auto;
+  font-size: clamp(2.7rem, 5.6vw, 4.7rem);
+  line-height: 0.9;
+  text-shadow: 4px 4px 0 #070908;
+  -webkit-text-stroke: 2px #070908;
+  paint-order: stroke fill;
+}
+
+.poster .lead {
+  margin: 0.85rem 0 0 auto;
+  color: #fff2d6;
+  text-shadow: 0 2px 0 #070908;
+}
+
+section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.8fr);
+  gap: 1.2rem;
+  align-items: end;
+  width: min(68rem, 100%);
+  padding-bottom: 0.6rem;
+}
+
+section article:nth-child(odd) {
+  transform: rotate(-1.15deg);
+}
+
+section article:nth-child(even) {
+  transform: rotate(1.45deg);
+  margin-top: 1.7rem;
+}
+
+@media (max-width: 800px) {
+  :host {
+    min-height: 0;
+    padding-bottom: 1rem;
+  }
+
+  .poster,
+  :host h1,
+  .poster .lead {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: none;
+  }
+
+  section {
+    grid-template-columns: 1fr;
+  }
+
+  section article:nth-child(odd),
+  section article:nth-child(even) {
+    transform: none;
+    margin-top: 0;
+  }
+}

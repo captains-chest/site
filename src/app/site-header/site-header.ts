@@ -14,7 +14,7 @@ const homeLinkActive: IsActiveMatchOptions = {
   imports: [RouterLink, RouterLinkActive, SiteNav],
   templateUrl: './site-header.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'topnav' },
+  host: { class: 'hull' },
 })
 export class SiteHeader {
   protected readonly _homeLinkActive = homeLinkActive;
