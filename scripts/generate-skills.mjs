@@ -53,6 +53,18 @@ const sectionHeadings = (markdown) => [...markdown.matchAll(/^##\s+(.+)$/gm)].ma
 const docOrder = (file) => (file === 'SKILL.md' ? 0 : file === 'README.md' ? 1 : 2);
 // Skill documents start at h1; shift them below the page's own h1/h2 so the outline stays valid.
 const shiftHeadings = (html) => html.replace(/<(\/?)h([1-6])\b/g, (_, slash, level) => `<${slash}h${Math.min(Number(level) + 2, 6)}`);
+// Relative *.md links in skill docs 404 under <base href="/"> (e.g. GENERAL.md -> /GENERAL.md).
+// Point them at the matching file on GitHub in this skill folder instead.
+const rewriteRelativeMdLinks = (html, slug) =>
+  html.replace(/<a\s+href="([^"]+)"/g, (match, href) => {
+    if (/^(?:[a-z]+:|\/|#)/i.test(href)) return match;
+    const [pathPart, hash = ''] = href.split('#');
+    if (!pathPart.endsWith('.md')) return match;
+    const file = pathPart.split('/').filter(Boolean).pop();
+    if (!file || file.includes('..')) return match;
+    const hashSuffix = hash ? `#${hash}` : '';
+    return `<a href="${repoUrl}/blob/${branch}/${slug}/${file}${hashSuffix}"`;
+  });
 
 const readSkill = (repoDir, slug) => {
   const folder = join(repoDir, slug);
@@ -66,7 +78,7 @@ const readSkill = (repoDir, slug) => {
       return {
         file,
         sections: sectionHeadings(markdown),
-        html: shiftHeadings(marked.parse(markdown, { async: false })),
+        html: rewriteRelativeMdLinks(shiftHeadings(marked.parse(markdown, { async: false })), slug),
         sourceUrl: `${repoUrl}/blob/${branch}/${slug}/${file}`,
       };
     });
