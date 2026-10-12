@@ -65,4 +65,11 @@ details.doc{margin-top:1rem}details.doc summary{cursor:pointer;font-weight:600}
 .credits{margin-top:2.5rem;color:var(--muted)}.credits small{font-size:.9rem}
 
 .eyebrow a{color:inherit}
+cc-home{display:block;padding:1.75rem 1.6rem .5rem}
+cc-home .poster{max-width:36rem}
+cc-home .eyebrow{color:#8fbf78}
+cc-home h1{max-width:16ch;margin:0 0 .65rem;font-size:clamp(2rem,4vw,2.8rem);font-weight:650;line-height:1.05;letter-spacing:-.03em;text-shadow:none;-webkit-text-stroke:0}
+cc-home .poster .lead{margin:0;color:#d7d0c2;text-shadow:none}
+cc-home section{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.75rem}
+@media (max-width:800px){cc-home{padding:1.2rem 1rem .25rem}cc-home section{grid-template-columns:1fr}}
 

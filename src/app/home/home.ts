@@ -6,7 +6,6 @@ import { projects } from '../projects/constants';
   selector: 'cc-home',
   imports: [ProjectCard],
   templateUrl: './home.html',
-  styleUrl: './home.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Home {

@@ -3,7 +3,8 @@
   <h1>Small, focused tools, built with care.</h1>
   <p class="lead">Captain's Chest is a home for open-source projects by CaptainDuckay.</p>
 </header>
-<section id="projects" aria-label="Projects">
+<section id="projects" aria-labelledby="projects-heading">
+  <h2 id="projects-heading" class="sr-only">Projects</h2>
   @defer (on immediate; hydrate on viewport) {
     @for (project of _projects; track project.slug) {
       <article cc-project-card [project]="project"></article>
