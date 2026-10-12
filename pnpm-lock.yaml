@@ -199,13 +199,13 @@ importers:
     devDependencies:
       '@angular/build':
         specifier: ^22.2.2
-        version: 22.2.2(5739562419d14215e428eab1552da10a)
+        version: 22.2.2(caaf6d6315d580e0f4a7002473a79031)
       '@angular/cli':
         specifier: ^22.2.2
         version: 22.2.2(@types/node@26.6.4)(chokidar@5.0.0)
       '@angular/compiler-cli':
-        specifier: ^22.2.0
-        version: 22.2.1(@angular/compiler@22.2.2)(typescript@6.0.3)
+        specifier: ^22.2.2
+        version: 22.2.2(@angular/compiler@22.2.2)(typescript@6.0.3)
       '@lhci/cli':
         specifier: ~0.15.1
         version: 0.15.1(supports-color@8.1.1)
@@ -322,12 +322,12 @@ packages:
       '@angular/core': 22.2.2
       rxjs: ^6.5.3 || ^7.4.0
 
-  '@angular/compiler-cli@22.2.1':
-    resolution: {integrity: sha512-Nh8sCBl0JF6x+H7/1hemY76JeTRC66EfMULT4B3ryF9srRSLYc6X6RfPRtYvrIyjgr6h3jZgrNHlV76wiJaOcA==}
+  '@angular/compiler-cli@22.2.2':
+    resolution: {integrity: sha512-7PCIBTVIzG4oyAkDeBRPJpGcgSDLBCKn+2Pp9+gXnXOEETdWhV34so1fpWZ2GWBZsxXav7Ry0K93vFwF93yWoQ==}
     engines: {node: ^22.22.3 || ^24.15.0 || >=26.0.0}
     hasBin: true
     peerDependencies:
-      '@angular/compiler': 22.2.1
+      '@angular/compiler': 22.2.2
       typescript: '>=6.0 <6.1'
     peerDependenciesMeta:
       typescript:
@@ -3833,12 +3833,12 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@angular/build@22.2.2(5739562419d14215e428eab1552da10a)':
+  '@angular/build@22.2.2(caaf6d6315d580e0f4a7002473a79031)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.2202.2(chokidar@5.0.0)
       '@angular/compiler': 22.2.2
-      '@angular/compiler-cli': 22.2.1(@angular/compiler@22.2.2)(typescript@6.0.3)
+      '@angular/compiler-cli': 22.2.2(@angular/compiler@22.2.2)(typescript@6.0.3)
       '@babel/core': 8.0.5
       '@inquirer/confirm': 6.3.2(@types/node@26.6.4)
       '@parcel/watcher': 2.6.0
@@ -3912,7 +3912,7 @@ snapshots:
       rxjs: 7.8.2
       tslib: 2.8.1
 
-  '@angular/compiler-cli@22.2.1(@angular/compiler@22.2.2)(typescript@6.0.3)':
+  '@angular/compiler-cli@22.2.2(@angular/compiler@22.2.2)(typescript@6.0.3)':
     dependencies:
       '@angular/compiler': 22.2.2
       '@babel/core': 8.0.1
