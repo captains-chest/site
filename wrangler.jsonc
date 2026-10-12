@@ -16,5 +16,14 @@
   },
   "alias": { "xhr2": "./worker/xhr2-stub.mjs" },
   "workers_dev": true,
-  "observability": { "enabled": true }
+  "preview_urls": true,
+  "observability": { "enabled": true },
+  // `wrangler preview` refuses to run without this block. Assets and compatibility stay at the top level.
+  "previews": {},
+  // Workers Builds does not read this as its build step, but `wrangler preview` and `wrangler deploy` do.
+  // Skip when CI or a local build already wrote the Worker entry.
+  "build": {
+    "command": "test -f dist/site/server/server.mjs || pnpm run build",
+    "watch_dir": "worker"
+  }
 }
