@@ -17,7 +17,7 @@ h2{font-size:1.35rem;margin:0 0 .4rem}.lead{font-size:1.2rem;color:var(--muted);
 .links{display:flex;flex-wrap:wrap;gap:.75rem}
 a{color:#e7c98a}a:focus-visible{outline:2px solid #f7e7ad;outline-offset:3px;border-radius:6px}
 .btn{display:inline-flex;align-items:center;min-height:2.25rem;padding:.4rem .9rem;border:1px solid rgb(196 163 106 / .55);border-radius:8px;background:transparent;color:#e7d7b4;font-weight:650;line-height:1;text-decoration:none;text-shadow:none;box-shadow:none}
-.btn.primary{background:#5f8f4a;border-color:#5f8f4a;color:#f4f7ef}
+.btn.primary{background:#46723c;border-color:#46723c;color:#f4f7ef}
 .btn:hover{filter:brightness(1.08)}.btn:active{filter:brightness(.94)}
 .btn.big{font-size:1.1rem;padding:.85rem 1.5rem}
 ul.plain{padding-left:1.2rem;color:var(--muted)}
