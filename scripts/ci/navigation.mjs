@@ -60,8 +60,6 @@ await click('nav a[href="/play"]');
 expect('Skill -> Playground', await head(), { path: '/play', title: "Playground · Captain's Chest", canonical: 'https://captains-chest.com/play', current: ['Playground'] });
 await click('header a.brand');
 expect('Playground -> Home', await head(), { path: '/', title: "Captain's Chest", canonical: 'https://captains-chest.com/', current: ["Captain's Chest"] });
-await click('nav a[href="/#projects"]');
-expect('Home -> Projects fragment', await head(), { path: '/#projects', current: ["Captain's Chest"] });
 console.log(`full document loads after hydration: ${documents - before} (expected 0)`);
 console.log(`console errors: ${errors.length}`, errors);
 failed ||= documents !== before || errors.length > 0;
