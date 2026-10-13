@@ -5,7 +5,7 @@
 ## Projects
 
 - [Material Symbols Rounded Icons](https://github.com/captains-chest/material-symbols-rounded-icons): Publishable Angular standalone component libraries for Material Symbols Rounded icons, in outline and filled variants, with a Storybook catalog.
-- [Dictator](https://dictator.captains-chest.com): Minimal, local-only dictation for macOS, transcribed on-device.
+- [Dictator](https://captains-chest.com/dictator): Minimal, local-only dictation for macOS, transcribed on-device.
 
 ## More
 

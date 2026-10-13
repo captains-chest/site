@@ -162,7 +162,7 @@ writeFileSync(
   join(outDir, 'public/school/version.json'),
   `${JSON.stringify({ skillsRepo: repoUrl, branch, sha, committedAt, skills: slugs }, null, 2)}\n`,
 );
-const sitePaths = ['/', '/play', '/dictator/privacy', '/school', '/school/way', '/school/skills', ...slugs.map((slug) => `/school/skills/${slug}`)];
+const sitePaths = ['/', '/play', '/dictator', '/dictator/privacy', '/school', '/school/way', '/school/skills', ...slugs.map((slug) => `/school/skills/${slug}`)];
 writeFileSync(
   join(outDir, 'public/sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
