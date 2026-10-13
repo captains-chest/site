@@ -22,10 +22,9 @@ interface Env {
 
 const apexHost = 'captains-chest.com';
 const wwwHost = 'www.captains-chest.com';
-/** Former subdomains whose content now lives under a path on the apex. */
+/** Former subdomain whose content now lives under a path on the apex. */
 const movedHosts: Readonly<Record<string, string>> = {
   'school.captains-chest.com': '/school',
-  'play.captains-chest.com': '/play',
 };
 const movedPermanently = 301;
 const notFound = 404;

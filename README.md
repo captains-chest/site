@@ -16,7 +16,7 @@ Cloudflare's edge. Content routes are prerendered at build time and served as st
   `@defer (on viewport; hydrate on viewport)` block.
 - Routes: `/`, `/play` (games), `/school` (intro), `/school/way` (tenets), `/school/skills` (catalog) and
   `/school/skills/<slug>`, all prerendered (skill slugs via `getPrerenderParams`). The Worker 301-redirects the
-  old school.captains-chest.com and play.captains-chest.com subdomains to these paths.
+  old school.captains-chest.com subdomain to `/school`.
 - `public/`: robots.txt, llms.txt, web manifest, favicons and the OG image (generated from `assets-src/`).
 
 ## School content (the skills fetch)
