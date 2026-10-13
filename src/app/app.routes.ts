@@ -18,6 +18,7 @@ const skillTitle: ResolveFn<string> = async (route) => {
 
 const home: Breadcrumb = { name: siteName, path: '/' };
 const school: Breadcrumb = { name: 'School', path: '/school' };
+const dictator: Breadcrumb = { name: 'Dictator', path: '/dictator' };
 const skills: Breadcrumb = { name: 'Skills', path: '/school/skills' };
 
 const skillMeta = (data: { readonly skill?: Skill | null }): RouteMeta => {
@@ -88,13 +89,23 @@ export const routes: Routes = [
     data: meta(skillMeta),
   },
   {
+    path: 'dictator',
+    loadComponent: () => import('./dictator-page/dictator-page').then((m) => m.DictatorPage),
+    title: `Dictator: offline dictation for macOS · ${siteName}`,
+    data: meta({
+      description: 'Minimal, local-only dictation for macOS. Transcription runs on-device with Whisper.',
+      path: '/dictator',
+      breadcrumbs: [home, dictator],
+    }),
+  },
+  {
     path: 'dictator/privacy',
     loadComponent: () => import('./dictator-privacy/dictator-privacy').then((m) => m.DictatorPrivacy),
     title: `Dictator privacy policy · ${siteName}`,
     data: meta({
       description: 'Dictator for Android and iOS collects no data: dictation runs offline, on the device.',
       path: '/dictator/privacy',
-      breadcrumbs: [home, { name: 'Dictator privacy policy', path: '/dictator/privacy' }],
+      breadcrumbs: [home, dictator, { name: 'Dictator privacy policy', path: '/dictator/privacy' }],
     }),
   },
   {

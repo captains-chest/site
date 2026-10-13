@@ -5,6 +5,7 @@ export const serverRoutes: ServerRoute[] = [
   // Content routes are prerendered at build time and served as static assets.
   { path: '', renderMode: RenderMode.Prerender },
   { path: 'play', renderMode: RenderMode.Prerender },
+  { path: 'dictator', renderMode: RenderMode.Prerender },
   { path: 'dictator/privacy', renderMode: RenderMode.Prerender },
   { path: 'school', renderMode: RenderMode.Prerender },
   { path: 'school/way', renderMode: RenderMode.Prerender },

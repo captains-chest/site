@@ -1,6 +1,10 @@
 <h3 [id]="headingId()">{{ project().name }}</h3>
 <p>{{ project().description }}</p>
 <div class="links">
-  <a class="btn primary" [href]="project().primary.href">{{ project().primary.label }}<span class="sr-only"> ({{ project().name }})</span></a>
+  @if (project().primary.href.startsWith('/')) {
+    <a class="btn primary" [routerLink]="project().primary.href">{{ project().primary.label }}<span class="sr-only"> ({{ project().name }})</span></a>
+  } @else {
+    <a class="btn primary" [href]="project().primary.href">{{ project().primary.label }}<span class="sr-only"> ({{ project().name }})</span></a>
+  }
   <a class="btn" [href]="project().sourceUrl">GitHub<span class="sr-only"> ({{ project().name }})</span></a>
 </div>
