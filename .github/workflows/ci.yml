@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
-      WRANGLER_SEND_METRICS: "false"
+      WRANGLER_SEND_METRICS: 'false'
       CHROME_PATH: /usr/bin/google-chrome
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -33,6 +33,10 @@ jobs:
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile
+      - name: Check Vite+ catalog is in sync
+        run: node scripts/check-vite-plus-sync.mjs
+      - name: Format, lint and type-check
+        run: pnpm exec vp check
       - run: pnpm build
       - name: HTML validator (Nu)
         run: pnpm check:html

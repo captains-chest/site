@@ -8,7 +8,11 @@ import type { Tenet } from '../school/models';
   imports: [RouterLink],
   templateUrl: './tenet-card.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'card', '[id]': 'tenet().slug', '[attr.aria-labelledby]': "tenet().slug + '-title'" },
+  host: {
+    class: 'card',
+    '[id]': 'tenet().slug',
+    '[attr.aria-labelledby]': "tenet().slug + '-title'",
+  },
 })
 export class TenetCard {
   readonly tenet = input.required<Tenet>();

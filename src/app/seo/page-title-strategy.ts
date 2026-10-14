@@ -1,5 +1,9 @@
 import { inject, Injectable } from '@angular/core';
-import { type ActivatedRouteSnapshot, type RouterStateSnapshot, TitleStrategy } from '@angular/router';
+import {
+  type ActivatedRouteSnapshot,
+  type RouterStateSnapshot,
+  TitleStrategy,
+} from '@angular/router';
 import { notFoundMeta, routeMetaKey, siteName } from './constants';
 import type { RouteMeta, RouteMetaSource } from './models';
 import { PageMeta } from './page-meta';

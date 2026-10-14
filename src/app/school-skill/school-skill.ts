@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, computed, effect, inject, input, RESPONSE_INIT } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  effect,
+  inject,
+  input,
+  RESPONSE_INIT,
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MsrCodeIconComponent } from '@captains-chest/material-symbols-rounded-icons';
 import { SchoolCredits } from '../school-credits/school-credits';

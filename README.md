@@ -46,6 +46,8 @@ Requires Node 22+ and pnpm.
     pnpm install --frozen-lockfile
     pnpm start                 # dev server
     pnpm run preview           # build, then run the Worker locally on http://localhost:8787
+    pnpm format                # format with Vite+ (vp fmt, Oxfmt)
+    pnpm exec vp check         # format check, lint (Oxlint, type-aware) and type-check
     pnpm run deploy            # build, then wrangler deploy (needs CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID)
 
 Pushes to `main` are deployed by Workers Builds with the same build and `npx wrangler deploy`. The old Cloudflare
