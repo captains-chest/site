@@ -31,7 +31,7 @@
       <h2 id="use">How to use it</h2>
       <p>Install it into your agent with the skills manager:</p>
       <pre><code>{{ skill.install }}</code></pre>
-      <p class="links"><a class="btn" [href]="skill.sourceUrl">View the source on GitHub</a></p>
+      <p class="links"><a class="btn" [href]="skill.sourceUrl"><msr-code-icon />View the source on GitHub</a></p>
     </section>
     @defer (on viewport; hydrate never) {
       <section cc-skill-docs [slug]="skill.slug" [docs]="skill.docs"></section>

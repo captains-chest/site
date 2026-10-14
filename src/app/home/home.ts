@@ -1,10 +1,24 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import {
+  MsrDiamondIconComponent,
+  MsrMenuBookIconComponent,
+  MsrSportsEsportsIconComponent,
+} from '@captains-chest/material-symbols-rounded-icons';
+import { PortLink } from '../port-link/port-link';
 import { ProjectCard } from '../project-card/project-card';
 import { projects } from '../projects/constants';
 
 @Component({
   selector: 'cc-home',
-  imports: [ProjectCard],
+  imports: [
+    RouterLink,
+    ProjectCard,
+    PortLink,
+    MsrDiamondIconComponent,
+    MsrSportsEsportsIconComponent,
+    MsrMenuBookIconComponent,
+  ],
   templateUrl: './home.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

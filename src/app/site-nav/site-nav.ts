@@ -1,5 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { type IsActiveMatchOptions, RouterLink, RouterLinkActive } from '@angular/router';
+import {
+  MsrMenuBookIconComponent,
+  MsrSportsEsportsIconComponent,
+} from '@captains-chest/material-symbols-rounded-icons';
 
 /** A section link stays active on every page below it, e.g. School on /school/skills/<slug>. */
 const sectionActive: IsActiveMatchOptions = {
@@ -11,7 +15,7 @@ const sectionActive: IsActiveMatchOptions = {
 
 @Component({
   selector: 'nav[cc-site-nav]',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, MsrSportsEsportsIconComponent, MsrMenuBookIconComponent],
   templateUrl: './site-nav.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { 'aria-label': 'Main' },
