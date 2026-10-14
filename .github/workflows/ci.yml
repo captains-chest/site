@@ -35,6 +35,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Check Vite+ catalog is in sync
         run: node scripts/check-vite-plus-sync.mjs
+      - name: Generate school content (needed for type-check)
+        run: pnpm content
       - name: Format, lint and type-check
         run: pnpm exec vp check
       - run: pnpm build
