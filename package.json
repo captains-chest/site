@@ -38,12 +38,12 @@
     "@angular/cli": "^22.2.2",
     "@angular/compiler-cli": "^22.2.2",
     "@lhci/cli": "~0.15.1",
-    "@types/node": "^26.6.4",
+    "@types/node": "^26.6.5",
     "axe-core": "^4.14.0",
     "marked": "^18.1.0",
     "puppeteer-core": "^25.13.0",
     "typescript": "~6.0.2",
-    "vnu-jar": "^26.10.9",
+    "vnu-jar": "^26.10.11",
     "wrangler": "^4.149.0",
     "vite-plus": "catalog:"
   }
