@@ -18,6 +18,14 @@
   "workers_dev": true,
   "preview_urls": true,
   "observability": { "enabled": true },
+  // Public hostnames. Former subdomains 301 to a path on the apex in src/server.ts.
+  "routes": [
+    { "pattern": "captains-chest.com", "custom_domain": true },
+    { "pattern": "www.captains-chest.com", "custom_domain": true },
+    { "pattern": "dictator.captains-chest.com", "custom_domain": true },
+    { "pattern": "play.captains-chest.com", "custom_domain": true },
+    { "pattern": "school.captains-chest.com", "custom_domain": true }
+  ],
   // `wrangler preview` refuses to run without this block. Assets and compatibility stay at the top level.
   "previews": {},
   // Workers Builds does not read this as its build step, but `wrangler preview` and `wrangler deploy` do.

@@ -7,16 +7,21 @@ Cloudflare's edge. Content routes are prerendered at build time and served as st
 ## How it works
 
 - `src/app/app.routes.server.ts`: `''` is `RenderMode.Prerender`, `**` is `RenderMode.Server`.
-- `src/server.ts` is the Worker: it redirects www to the apex (301), returns 404 for `*.md`, serves static assets,
-  falls back to `AngularAppEngine` for SSR, and sets Cache-Control, security headers and a per-request CSP nonce
-  (pages are built with `ngCspNonce="__CSP_NONCE__"`, and the Worker swaps in a fresh nonce).
-- `wrangler.jsonc`: Worker `captains-chest-site` with static assets from `dist/site/browser`, custom domains
-  captains-chest.com and www.captains-chest.com.
+- `src/server.ts` is the Worker: it redirects www to the apex (301), redirects the former subdomains
+  `play.captains-chest.com`, `school.captains-chest.com`, and `dictator.captains-chest.com` to `/play`, `/school`,
+  and `/dictator`, returns 404 for `*.md`, serves static assets, falls back to `AngularAppEngine` for SSR, and sets
+  Cache-Control, security headers and a per-request CSP nonce (pages are built with `ngCspNonce="__CSP_NONCE__"`,
+  and the Worker swaps in a fresh nonce).
+- `wrangler.jsonc`: Worker `captains-chest-site` with static assets from `dist/site/browser`, and custom domains
+  captains-chest.com, www.captains-chest.com, play.captains-chest.com, school.captains-chest.com, and
+  dictator.captains-chest.com.
 - Hydration: full hydration with incremental hydration and event replay; the project cards are a
   `@defer (on viewport; hydrate on viewport)` block.
-- Routes: `/`, `/play` (games), `/school` (intro), `/school/way` (tenets), `/school/skills` (catalog) and
-  `/school/skills/<slug>`, all prerendered (skill slugs via `getPrerenderParams`). The Worker 301-redirects the
-  old school.captains-chest.com subdomain to `/school`.
+- Routes: `/`, `/play` (games), `/school` (intro), `/school/way` (tenets), `/school/skills` (catalog),
+  `/school/skills/<slug>`, `/dictator`, and `/dictator/privacy`, all prerendered (skill slugs via
+  `getPrerenderParams`). A request to the root of a former subdomain redirects to that path; a deeper path is
+  preserved, so `school.captains-chest.com/way` goes to `/school/way` and `dictator.captains-chest.com/privacy`
+  goes to `/dictator/privacy`.
 - `public/`: robots.txt, llms.txt, web manifest, favicons and the OG image (generated from `assets-src/`).
 
 ## School content (the skills fetch)
@@ -43,5 +48,6 @@ Requires Node 22+ and pnpm.
     pnpm run preview           # build, then run the Worker locally on http://localhost:8787
     pnpm run deploy            # build, then wrangler deploy (needs CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID)
 
-The old Cloudflare Pages project `captains-chest-site` is no longer attached to any domain; don't deploy to it.
-CI (`.github/workflows/ci.yml`) builds, validates the HTML, runs axe and the Lighthouse budgets (`lighthouserc.*.json`) against a local Worker preview. Deploys stay manual (`pnpm run deploy`).
+Pushes to `main` are deployed by Workers Builds with the same build and `npx wrangler deploy`. The old Cloudflare
+Pages project `captains-chest-site` is not attached to any domain; don't deploy to it.
+CI (`.github/workflows/ci.yml`) builds, validates the HTML, runs axe and the Lighthouse budgets (`lighthouserc.*.json`) against a local Worker preview.
