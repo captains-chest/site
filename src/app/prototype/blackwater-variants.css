@@ -1,0 +1,280 @@
+/* PROTOTYPE (throwaway): three Blackwater directions, scoped to .shell[data-variant]. Loaded only in dev builds. */
+
+/* ---------- switcher (not part of any design) ---------- */
+.proto-switcher{position:fixed;left:50%;bottom:1rem;transform:translateX(-50%);z-index:1000;display:flex;align-items:center;gap:.25rem;padding:.3rem;border-radius:999px;background:#fff;color:#111;font:600 14px/1 system-ui,sans-serif;box-shadow:0 6px 24px rgb(0 0 0/.55),0 0 0 2px #ff3d7f}
+.proto-switcher button{all:unset;cursor:pointer;display:grid;place-items:center;width:2.2rem;height:2.2rem;border-radius:999px;background:#111;color:#fff}
+.proto-switcher button:focus-visible{outline:2px solid #ff3d7f;outline-offset:2px}
+.proto-label{min-width:10.5rem;padding:0 .75rem;text-align:center;white-space:nowrap}
+
+/* ---------- shared across the three variants ---------- */
+.proto-icon{display:inline-flex;flex:none;width:1.15em;height:1.15em}
+.proto-icon svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.shell[data-variant]{
+  --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+  --moss:linear-gradient(#487639,#355c2d);
+  --i-wheel:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='M12 6a6 6 0 1 0 0 12 6 6 0 0 0 0-12M12 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4M12 2v8M12 14v8M2 12h8M14 12h8M5 5l5.6 5.6M13.4 13.4 19 19M19 5l-5.6 5.6M10.6 13.4 5 19'/%3E%3C/svg%3E");
+  --i-book:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5M8 7h8'/%3E%3C/svg%3E");
+}
+.shell[data-variant] .hull nav a{gap:.75rem}
+.shell[data-variant] .hull nav a::before{content:"";flex:none;width:1.25rem;height:1.25rem;background:currentColor;mask:var(--icon) center/contain no-repeat}
+.shell[data-variant] .hull nav a[href^="/play"]{--icon:var(--i-wheel)}
+.shell[data-variant] .hull nav a[href^="/school"]{--icon:var(--i-book)}
+.shell[data-variant] cc-home{padding:0}
+.shell[data-variant] cc-home section{display:block;margin-top:0}
+.shell[data-variant] cc-proto-rail-extras{display:contents}
+
+/* Blackwater action visual: bevelled moss primary, shipwood secondary, pressed = inset, not movement. */
+.shell[data-variant] .btn{gap:.5rem;background:linear-gradient(#1f1b15,#14110d);border:1px solid rgb(196 163 106/.5);color:#ecdfc2;box-shadow:inset 0 1px 0 rgb(255 240 210/.08),0 2px 0 rgb(0 0 0/.45)}
+.shell[data-variant] .btn.primary{background:var(--moss);border-color:#5f8f4f;color:#f6f9f1;box-shadow:inset 0 1px 0 rgb(220 255 200/.22),inset 0 -2px 0 rgb(0 0 0/.22),0 2px 0 rgb(0 0 0/.5)}
+.shell[data-variant] .btn:active{filter:brightness(.9);box-shadow:inset 0 2px 5px rgb(0 0 0/.55)}
+
+/* =====================================================================
+   A · Chart Room: the admin-panel reference. A wooden frame around an opaque
+   chart room, an icon rail with a ship's-status card, sea banners as page headers.
+   ===================================================================== */
+cc-root:has(> .shell[data-variant=A]) > .sea{display:none}
+body:has(.shell[data-variant=A]){background:#030605}
+.shell[data-variant=A]{
+  --panel:linear-gradient(180deg,rgb(16 30 28/.92),rgb(10 20 19/.92));
+  --line:rgb(196 163 106/.24);
+  grid-template-columns:16.5rem minmax(0,1fr);
+  min-height:calc(100dvh - 1.2rem);margin:.6rem;
+  border:10px solid transparent;border-radius:22px;
+  background:radial-gradient(120% 70% at 75% 0%,#10302b 0%,#0a1614 45%,#070f0e 100%) padding-box,
+    linear-gradient(135deg,#7a5532,#2b1b0e 16%,#6b4a2b 38%,#23170c 60%,#80593a 82%,#3a2716) border-box;
+  box-shadow:inset 0 0 0 1px rgb(214 180 120/.35),0 0 0 1px #000,0 24px 60px rgb(0 0 0/.6);
+}
+.shell[data-variant=A] .hull{height:calc(100dvh - 1.2rem - 20px);padding:1.9rem 1rem 1rem;background:linear-gradient(180deg,#0f1e1c,#0a1312);border-right:3px solid #3a2716;box-shadow:inset -1px 0 0 rgb(214 180 120/.22)}
+.shell[data-variant=A] .hull .brand{gap:.55rem;margin:0 0 1.75rem;font:600 1.05rem/1.2 var(--serif);letter-spacing:.22em}
+.shell[data-variant=A] .hull .brand::after{content:"Open-source harbour";font:600 .62rem/1 system-ui,sans-serif;letter-spacing:.22em;color:#8d9c8f}
+.shell[data-variant=A] .hull .mark{width:4.4rem;filter:drop-shadow(0 3px 0 #000)}
+.shell[data-variant=A] .hull nav ul{gap:.3rem}
+.shell[data-variant=A] .hull nav a{min-height:2.9rem;padding:.5rem .9rem;color:#d4cdbf;font-size:1rem}
+.shell[data-variant=A] .hull nav a[aria-current=page]{background:linear-gradient(90deg,#33603a,#24452a);color:#f4f7ef;box-shadow:inset 3px 0 0 #d6b478,inset 0 1px 0 rgb(220 255 200/.12)}
+.cr-shiplog{margin-top:auto;padding:.75rem;border:1px solid var(--line);border-radius:12px;background:#0b1514;box-shadow:inset 0 0 0 3px #070d0c,inset 0 0 0 4px rgb(107 81 50/.6)}
+.cr-shiplog img{display:block;width:100%;height:6.5rem;margin:0 0 .7rem;object-fit:cover;object-position:50% 55%;border-radius:8px;opacity:.9}
+.cr-shiplog p{margin:0}
+.cr-shiplog-title{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#a8b2a4}
+.cr-shiplog-status{display:flex;align-items:center;gap:.5rem;margin:.3rem 0 .2rem!important;color:#f1ead9;font-size:.92rem}
+.cr-dot{width:.6rem;height:.6rem;border-radius:50%;background:#6fcf5a;box-shadow:0 0 0 3px rgb(111 207 90/.2),0 0 10px #6fcf5a}
+.cr-shiplog-meta{font-size:.78rem;color:#a8b2a4}
+.shell[data-variant=A] main,.shell[data-variant=A]:has(cc-home) main{width:100%;max-width:none;margin:0;padding:1.4rem 1.6rem 1rem;background:none;border:0;border-radius:0}
+.shell[data-variant=A] main>*>header:first-child,.shell[data-variant=A] main>*>article>header:first-child,.shell[data-variant=A] cc-home .poster{
+  position:relative;display:flex;flex-direction:column;justify-content:flex-end;max-width:none;min-height:13.5rem;margin:0 0 1.25rem;padding:1.6rem 1.8rem;
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  background:linear-gradient(90deg,rgb(7 15 14/.95) 0%,rgb(7 15 14/.7) 38%,rgb(7 15 14/.05) 70%),linear-gradient(0deg,rgb(7 15 14/.85),transparent 55%),url(/blackwater-sea.avif) 24% 26%/cover;
+  box-shadow:inset 0 1px 0 rgb(255 240 210/.06),0 10px 30px rgb(0 0 0/.3);
+}
+.shell[data-variant=A] main>*>header:first-child>*,.shell[data-variant=A] main>*>article>header:first-child>*,.shell[data-variant=A] cc-home .poster>*{max-width:34rem}
+.shell[data-variant=A] h1,.shell[data-variant=A] cc-home h1{max-width:none;font:600 clamp(1.8rem,3.6vw,2.6rem)/1.08 var(--serif);letter-spacing:0;color:#f7f1e3}
+.shell[data-variant=A] .lead{margin-bottom:0;color:#d7d0c2}
+.shell[data-variant=A] header .links{margin:1.1rem 0 0}
+.shell[data-variant=A] .eyebrow{color:#8fbf78}
+.shell[data-variant=A] .card,.cr-panel,.cr-stats li{background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:inset 0 1px 0 rgb(255 240 210/.05),0 8px 24px rgb(0 0 0/.25)}
+.shell[data-variant=A] .card h3,.cr-panel h2{font-family:var(--serif);font-weight:600}
+.shell[data-variant=A] .card p{color:#c9c2b4}
+.shell[data-variant=A] .section{margin-top:1.75rem}
+.cr-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,12.5rem),1fr));gap:1rem;margin:0 0 1rem;padding:0;list-style:none}
+.cr-stats li{display:grid;grid-template-columns:auto 1fr;column-gap:.9rem;align-items:center;padding:1rem 1.1rem}
+.cr-stats .proto-icon{grid-row:1 / 4;width:2.9rem;height:2.9rem;padding:.6rem;border:1px solid #c4a36a;border-radius:50%;color:#e7c98a;background:radial-gradient(#2c2316,#120e09)}
+.cr-stats span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#a8b2a4}
+.cr-stats strong{font:600 2rem/1.1 var(--serif);color:#f7f1e3}
+.cr-stats small{font-size:.8rem;color:#8fbf78}
+.cr-board{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:1rem;align-items:start}
+.cr-panel{padding:1.15rem 1.3rem 1.25rem}
+.cr-panel h2{margin:0 0 .5rem;font-size:1.25rem;color:#f7f1e3}
+.cr-projects,.cr-log{margin:0;padding:0;list-style:none}
+.cr-projects li{display:grid;grid-template-columns:auto 1fr;gap:1rem;padding:1rem 0;border-top:1px solid var(--line)}
+.cr-projects li:first-child{border-top:0}
+.cr-projects h3{margin:.15rem 0 .3rem;font:600 1.2rem/1.2 var(--serif);color:#fff2d6}
+.cr-projects p{margin:0 0 .9rem;color:#c9c2b4}
+.cr-medal{display:grid;place-items:center;width:3.1rem;height:3.1rem;border:2px solid #c4a36a;border-radius:50%;color:#f0d496;background:radial-gradient(circle at 35% 30%,#5a4423,#1a130a);box-shadow:0 3px 0 #000}
+.cr-medal .proto-icon{width:1.45rem;height:1.45rem}
+.cr-log li{display:grid;grid-template-columns:auto 1fr;gap:.8rem;align-items:center;padding:.65rem 0}
+.cr-log span:last-child{display:flex;flex-direction:column;color:#efe6d3}
+.cr-log a{color:#efe6d3;font-weight:600;text-decoration:none}
+.cr-log a:hover{text-decoration:underline}
+.cr-log small{color:#9aa69a;font-size:.8rem}
+.cr-avatar{display:grid;place-items:center;width:2.4rem;height:2.4rem;border:1px solid rgb(196 163 106/.45);border-radius:50%;color:#e7c98a;background:#15110b}
+.cr-more{display:inline-flex;align-items:center;gap:.4rem;margin-top:.6rem;color:#8fbf78;font-weight:600;text-decoration:none}
+.shell[data-variant=A] footer{width:100%;margin:0;padding:.4rem 1.6rem 1rem;color:#a8b2a4}
+@media (max-width:1100px){.cr-board{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:800px){
+  .shell[data-variant=A]{grid-template-columns:minmax(0,1fr);margin:0;min-height:100dvh;border-width:6px;border-radius:0}
+  .shell[data-variant=A] .hull{height:auto;padding:.7rem .9rem;border-right:0;border-bottom:3px solid #3a2716}
+  .shell[data-variant=A] .hull .brand{font-size:.95rem;letter-spacing:.12em}
+  .shell[data-variant=A] .hull .brand::after,.cr-shiplog{display:none}
+  .shell[data-variant=A] .hull .mark{width:2.2rem}
+  .shell[data-variant=A] main,.shell[data-variant=A]:has(cc-home) main{padding:1rem .8rem}
+  .shell[data-variant=A] main>*>header:first-child,.shell[data-variant=A] main>*>article>header:first-child,.shell[data-variant=A] cc-home .poster{min-height:11rem;padding:1.1rem;background-position:30% 26%}
+  .cr-stats{grid-template-columns:1fr 1fr;gap:.6rem}
+  .cr-stats li{grid-template-columns:1fr;padding:.8rem}
+  .cr-stats .proto-icon{grid-row:auto;margin-bottom:.4rem}
+  .shell[data-variant=A] footer{padding:.4rem .8rem 4.5rem}
+}
+
+/* =====================================================================
+   B · Voyage: immersive. No rail; a wooden plank floats at the top, a rope
+   frame rings the window, the painting is the whole first screen, and every
+   card is a riveted plaque with a cartoon outline.
+   ===================================================================== */
+body:has(.shell[data-variant=B])::after{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;border:9px solid transparent;border-image:repeating-linear-gradient(45deg,#e0c088 0 3px,#8a6738 3px 6px,#3d2b18 6px 8px) 9;filter:drop-shadow(0 0 6px rgb(0 0 0/.7))}
+.shell[data-variant=B]{display:block;min-height:100dvh;margin:0;border:0;border-radius:0;box-shadow:none;overflow:visible}
+.shell[data-variant=B]::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg,rgb(4 9 8/.35),rgb(4 9 8/.8) 45%,rgb(4 9 8/.94))}
+.shell[data-variant=B]:has(cc-home)::before{background:linear-gradient(90deg,transparent 35%,rgb(4 9 8/.45))}
+.shell[data-variant=B] .hull{position:sticky;top:1.1rem;z-index:20;flex-direction:row;align-items:center;gap:1rem;width:min(62rem,calc(100% - 3rem));height:auto;margin:1.1rem auto 0;padding:.5rem .7rem .5rem 1.6rem;border:3px solid #050807;border-radius:14px;
+  background:radial-gradient(circle at 12px 50%,#ecd093 0 2.5px,#5a4020 3px,transparent 4px),radial-gradient(circle at calc(100% - 12px) 50%,#ecd093 0 2.5px,#5a4020 3px,transparent 4px),repeating-linear-gradient(180deg,transparent 0 7px,rgb(0 0 0/.14) 7px 8px),linear-gradient(180deg,#61432a,#3f2915 55%,#2d1d0f);
+  box-shadow:inset 0 1px 0 rgb(255 220 160/.3),inset 0 -2px 0 rgb(0 0 0/.35),5px 5px 0 #050807}
+.shell[data-variant=B] .hull .brand{flex-direction:row;gap:.6rem;margin:0;font:700 1.05rem/1 var(--serif);letter-spacing:.14em;text-shadow:0 2px 0 #000}
+.shell[data-variant=B] .hull .mark{width:2.2rem;filter:drop-shadow(0 2px 0 #000)}
+.shell[data-variant=B] .hull nav{margin-left:auto}
+.shell[data-variant=B] .hull nav ul{display:flex;gap:.4rem}
+.shell[data-variant=B] .hull nav a{min-height:2.6rem;padding:.4rem 1rem;border:2px solid transparent;color:#f6e7c6;text-shadow:0 1px 0 #000}
+.shell[data-variant=B] .hull nav a:hover{background:rgb(0 0 0/.25)}
+.shell[data-variant=B] .hull nav a[aria-current=page]{background:var(--moss);border-color:#050807;box-shadow:inset 0 1px 0 rgb(220 255 200/.25),3px 3px 0 #050807;text-shadow:none}
+.shell[data-variant=B] main{width:min(58rem,calc(100% - 3rem));margin:3rem auto 0;padding:0;background:none;border:0;border-radius:0}
+.shell[data-variant=B]:has(cc-home) main{width:100%;margin:0}
+.shell[data-variant=B] h1,.shell[data-variant=B] cc-home h1{max-width:none;color:#fbf3df;font:800 clamp(2.3rem,5.5vw,3.8rem)/1.02 var(--serif);letter-spacing:-.01em;text-shadow:-2px -2px 0 #050807,2px -2px 0 #050807,-2px 2px 0 #050807,2px 2px 0 #050807,5px 6px 0 #050807}
+.shell[data-variant=B] main>*>header:first-child,.shell[data-variant=B] main>*>article>header:first-child{max-width:46rem;margin:0 auto 2.75rem;text-align:center}
+.shell[data-variant=B] main>*>header:first-child .lead{margin-inline:auto}
+.shell[data-variant=B] main>*>header:first-child .links{justify-content:center}
+.shell[data-variant=B] .lead{color:#efe4cb;text-shadow:0 2px 6px #000}
+.shell[data-variant=B] .eyebrow{color:#a6e07a;text-shadow:0 1px 0 #000}
+.shell[data-variant=B] .card,.vy-bounty,.vy-port{position:relative;color:#f4e6c8;border:3px solid #050807;border-radius:14px;
+  background:radial-gradient(circle at 13px 13px,#ecd093 0 2.5px,#5a4020 3px,transparent 4px),radial-gradient(circle at calc(100% - 13px) 13px,#ecd093 0 2.5px,#5a4020 3px,transparent 4px),radial-gradient(circle at 13px calc(100% - 13px),#ecd093 0 2.5px,#5a4020 3px,transparent 4px),radial-gradient(circle at calc(100% - 13px) calc(100% - 13px),#ecd093 0 2.5px,#5a4020 3px,transparent 4px),repeating-linear-gradient(180deg,transparent 0 26px,rgb(0 0 0/.2) 26px 28px),linear-gradient(180deg,#4d341d,#33210f);
+  box-shadow:inset 0 0 0 2px rgb(236 208 147/.22),6px 6px 0 #050807}
+.shell[data-variant=B] .card{padding:1.5rem 1.7rem}
+.shell[data-variant=B] .card p,.vy-bounty p{color:#ead8b2}
+.shell[data-variant=B] .card h3,.shell[data-variant=B] .card h2{font-family:var(--serif);font-weight:700;color:#fff3d6}
+.shell[data-variant=B] .card .eyebrow{color:#b9e891}
+.shell[data-variant=B] .card a:not(.btn){color:#ffe2a3}
+.shell[data-variant=B] .grid,.shell[data-variant=B] .stack{gap:1.6rem}
+.shell[data-variant=B] .btn{border:2px solid #050807;box-shadow:inset 0 1px 0 rgb(255 240 210/.12),3px 3px 0 #050807}
+.shell[data-variant=B] .btn.primary{border-color:#050807;box-shadow:inset 0 1px 0 rgb(220 255 200/.25),3px 3px 0 #050807}
+.shell[data-variant=B] .btn:active{box-shadow:inset 0 2px 5px rgb(0 0 0/.55),1px 1px 0 #050807}
+.shell[data-variant=B] pre{background:#120c06;border-color:#050807}
+.vy-hero{display:flex;flex-direction:column;justify-content:center;width:min(44rem,calc(100% - 3rem));min-height:calc(100dvh - 4.5rem);margin:0 clamp(1.5rem,7vw,7rem) 0 auto;padding:3rem 0 7rem}
+.shell[data-variant=B] .vy-hero h1{font-size:clamp(2.4rem,4.4vw,4rem)}
+.vy-hero h1 span{display:block;color:#b9f08a;text-shadow:-2px -2px 0 #050807,2px -2px 0 #050807,-2px 2px 0 #050807,2px 2px 0 #050807,5px 6px 0 #050807,0 0 40px rgb(140 230 90/.55)}
+.vy-hero .lead{max-width:28rem;margin:.9rem 0 1.6rem;font-size:1.2rem}
+.vy-hero .links{gap:1rem}
+.vy-loot,.vy-ports{padding:4rem clamp(1.5rem,4vw,3rem) 0;background:linear-gradient(180deg,transparent,rgb(4 9 8/.9) 7rem,rgb(4 9 8/.94))}
+.vy-ports{background:rgb(4 9 8/.94);padding-bottom:1rem}
+.vy-loot ol{display:grid;gap:2.2rem;width:min(52rem,100%);margin:0 auto}
+.vy-title{display:flex;align-items:center;gap:1rem;width:min(52rem,100%);margin:0 auto 2rem;font:700 clamp(1.7rem,3.5vw,2.3rem)/1 var(--serif);color:#f7ead0;text-shadow:3px 3px 0 #050807}
+.vy-title::before,.vy-title::after{content:"";flex:1;height:3px;background:linear-gradient(90deg,transparent,#c4a36a);border-radius:2px}
+.vy-title::after{background:linear-gradient(90deg,#c4a36a,transparent)}
+.vy-bounty{display:grid;grid-template-columns:auto 1fr;gap:1.6rem;align-items:center;padding:1.7rem 2rem}
+.vy-bounty:nth-child(even){grid-template-columns:1fr auto}
+.vy-bounty:nth-child(even) .vy-no{order:2;rotate:6deg}
+.vy-bounty h3{margin:0 0 .4rem;font:700 clamp(1.4rem,3vw,1.8rem)/1.1 var(--serif);color:#fff3d6}
+.vy-bounty p{margin:0 0 1.1rem}
+.vy-no{display:grid;place-items:center;width:5.5rem;height:5.5rem;border:3px solid #050807;border-radius:50%;rotate:-6deg;color:#2a1a0a;font:800 1.15rem/1 var(--serif);text-align:center;background:radial-gradient(circle at 35% 30%,#f6dc9c,#c49a4e 60%,#8a6326);box-shadow:inset 0 0 0 4px rgb(255 240 200/.35),4px 4px 0 #050807}
+.vy-port-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr));gap:1.6rem;width:min(52rem,100%);margin:0 auto}
+.vy-port{display:grid;justify-items:start;gap:.35rem;padding:1.6rem 1.8rem;text-decoration:none;transition:translate .15s,box-shadow .15s}
+.vy-port:hover{translate:-2px -2px;box-shadow:inset 0 0 0 2px rgb(236 208 147/.22),9px 9px 0 #050807}
+.vy-port .proto-icon{width:2.4rem;height:2.4rem;margin-bottom:.4rem;color:#b9f08a}
+.vy-port strong{font:700 1.45rem/1.1 var(--serif);color:#fff3d6}
+.vy-port span{color:#ead8b2}
+.shell[data-variant=B] footer{width:100%;margin:4rem 0 0;padding:1.3rem 2rem calc(1.6rem + 9px);border-top:3px solid #050807;background:repeating-linear-gradient(180deg,transparent 0 7px,rgb(0 0 0/.14) 7px 8px),linear-gradient(#3f2915,#24170b);color:#efe0bf;text-align:center}
+.shell[data-variant=B]:has(cc-home) footer{margin-top:0}
+.shell[data-variant=B] footer a{color:#ffe2a3}
+@media (max-width:800px){
+  body:has(.shell[data-variant=B])::after{border-width:5px;border-image-slice:5}
+  .shell[data-variant=B] .hull{top:.6rem;width:calc(100% - 1.6rem);margin-top:.6rem;padding:.5rem .6rem .5rem 1.4rem;background-color:transparent}
+  .shell[data-variant=B] .hull .brand{font-size:.9rem;letter-spacing:.06em}
+  .shell[data-variant=B] .hull nav{flex:0 1 auto;min-width:0}
+  .shell[data-variant=B] .hull nav a{min-height:2.75rem;padding:.4rem .7rem}
+  .shell[data-variant=B] main{width:calc(100% - 2rem);margin-top:2rem}
+  .vy-hero{width:auto;min-height:78dvh;margin:0;padding:3rem 1.25rem 4rem;justify-content:flex-end}
+  .vy-bounty,.vy-bounty:nth-child(even){grid-template-columns:1fr;padding:1.4rem 1.3rem}
+  .vy-bounty:nth-child(even) .vy-no{order:0}
+  .vy-no{width:4.25rem;height:4.25rem;font-size:.95rem}
+  .shell[data-variant=B] footer{padding-bottom:5rem}
+}
+
+/* =====================================================================
+   C · Crow's Nest: the X reference. Three floating columns over the sea: a
+   rail with a Set sail action, one logbook feed, and the captain's column.
+   On a phone the rail becomes a bottom tab bar.
+   ===================================================================== */
+.shell[data-variant=C]{--glass:rgb(7 13 12/.9);--hair:rgb(196 163 106/.2);grid-template-columns:15.5rem minmax(0,40rem) 20rem;grid-template-rows:auto 1fr;justify-content:center;column-gap:1.25rem;min-height:100dvh;margin:0;padding:1.25rem 1.25rem 0;border:0;border-radius:0;box-shadow:none;overflow:visible}
+.shell[data-variant=C] .hull{top:1.25rem;height:calc(100dvh - 2.5rem);padding:1.3rem .9rem 1rem;background:var(--glass);border:1px solid var(--hair);border-radius:20px;backdrop-filter:blur(6px)}
+.shell[data-variant=C] .hull .brand{flex-direction:row;align-items:center;gap:.7rem;margin:0 .5rem 1.4rem;font-size:.95rem;letter-spacing:.06em;text-transform:none;text-align:start}
+.shell[data-variant=C] .hull .mark{width:2.6rem}
+.shell[data-variant=C] .hull nav a{min-height:3.1rem;padding:.6rem .9rem;border-radius:999px;color:#ebe3d2;font-size:1.15rem;font-weight:500}
+.shell[data-variant=C] .hull nav a::before{width:1.5rem;height:1.5rem}
+.shell[data-variant=C] .hull nav a:hover{background:rgb(255 242 214/.07)}
+.shell[data-variant=C] .hull nav a[aria-current=page]{background:rgb(70 114 60/.3);color:#fff;font-weight:700}
+.cn-sail{width:100%;min-height:3.1rem!important;margin-top:auto;border-radius:999px!important;font-size:1rem}
+.cn-me{display:flex;align-items:center;gap:.7rem;margin-top:1rem;padding:.55rem .6rem;border-radius:999px}
+.cn-me img{width:2.6rem;height:2.6rem;border-radius:50%;border:2px solid #c4a36a}
+.cn-me span{display:flex;flex-direction:column;line-height:1.2;color:#f1e9d6;font-size:.9rem}
+.cn-me small{color:#9aa69a}
+.shell[data-variant=C] main,.shell[data-variant=C]:has(cc-home) main{grid-column:2;grid-row:1 / span 2;width:100%;max-width:none;min-height:calc(100dvh - 2.5rem);margin:0 0 1.25rem;padding:0 0 1.5rem;background:var(--glass);border:1px solid var(--hair);border-radius:20px;overflow:clip}
+.shell[data-variant=C] main>:not(cc-home){padding:0 1.35rem}
+.shell[data-variant=C] main>*>header:first-child,.shell[data-variant=C] main>*>article>header:first-child{margin:0 -1.35rem 0;padding:1.4rem 1.35rem 1.25rem;border-bottom:1px solid var(--hair)}
+.shell[data-variant=C] h1{font-size:clamp(1.6rem,3.2vw,2rem);letter-spacing:-.02em}
+.shell[data-variant=C] .lead{font-size:1.02rem;margin-bottom:.9rem;color:#cfc8b9}
+.shell[data-variant=C] .eyebrow{color:#8fbf78;letter-spacing:.08em}
+.shell[data-variant=C] .grid,.shell[data-variant=C] .stack{grid-template-columns:minmax(0,1fr);gap:0}
+.shell[data-variant=C] .card{padding:1.1rem 0;background:none;border:0;border-bottom:1px solid var(--hair);border-radius:0}
+.shell[data-variant=C] .card p{color:#cfc8b9}
+.shell[data-variant=C] .section{margin-top:1.5rem}
+.shell[data-variant=C] .btn{min-height:2.4rem;padding:.35rem 1.05rem;border-radius:999px}
+.cn-bar{position:sticky;top:0;z-index:2;margin:0;padding:1rem 1.35rem;border-bottom:1px solid var(--hair);background:rgb(7 13 12/.82);backdrop-filter:blur(10px);font-size:1.25rem;font-weight:700;color:#f7f1e3}
+.cn-entry{display:grid;grid-template-columns:3rem minmax(0,1fr);gap:.9rem;padding:1.05rem 1.35rem;border-bottom:1px solid var(--hair)}
+.cn-entry p{margin:0 0 .6rem;color:#d9d2c3}
+.cn-face{width:3rem;height:3rem;border-radius:50%;object-fit:cover;border:2px solid #c4a36a}
+.cn-medal{display:grid;place-items:center;color:#f0d496;background:radial-gradient(circle at 35% 30%,#4d3a1e,#15100a)}
+.cn-medal .proto-icon{width:1.35rem;height:1.35rem}
+.cn-meta{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem;margin:0 0 .25rem!important;color:#9aa69a!important;font-size:.92rem}
+.cn-meta strong{color:#f7f1e3;font-size:1rem}
+.cn-pinned h1{margin:.2rem 0 .4rem;font-size:clamp(1.5rem,3vw,1.85rem)!important}
+.cn-pinned .lead{margin:0 0 .8rem;font-size:1rem}
+.cn-media{aspect-ratio:2 / 1;border:1px solid var(--hair);border-radius:16px;background:url(/blackwater-sea.avif) 28% 32%/180% auto}
+.cn-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.25rem}
+.cn-act{display:inline-flex;align-items:center;gap:.4rem;min-height:2.4rem;color:#9aa69a;font-size:.92rem;text-decoration:none}
+.cn-act:hover{color:#8fbf78}
+.cn-aside{grid-column:3;grid-row:1;display:grid;gap:1rem;align-content:start}
+.cn-panel{padding:1rem 1.1rem;background:var(--glass);border:1px solid var(--hair);border-radius:18px;overflow:clip}
+.cn-panel h2{margin:0 0 .6rem;font-size:1.2rem;color:#f7f1e3}
+.cn-profile{padding-top:0}
+.cn-profile-banner{height:6.5rem;margin:0 -1.1rem;background:url(/blackwater-sea.avif) 30% 30%/240% auto}
+.cn-avatar{display:block;width:4.6rem;height:4.6rem;margin-top:-2.3rem;border:3px solid #0b1312;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px #c4a36a}
+.cn-profile h2{margin:.5rem 0 0}
+.cn-profile p{margin:.35rem 0 0;color:#d9d2c3;font-size:.93rem}
+.cn-handle{margin:0!important;color:#9aa69a!important}
+.cn-counts{display:flex;flex-wrap:wrap;gap:.25rem 1rem;color:#9aa69a!important}
+.cn-counts strong{color:#f7f1e3}
+.cn-trending{margin:0 -1.1rem;padding:0;list-style:none}
+.cn-trending a{display:flex;flex-direction:column;padding:.55rem 1.1rem;color:#f1e9d6;font-weight:600;text-decoration:none}
+.cn-trending a:hover{background:rgb(255 242 214/.05)}
+.cn-trending small{color:#9aa69a;font-size:.78rem;font-weight:400}
+.cn-more{display:inline-block;margin-top:.5rem;color:#8fbf78;font-size:.92rem;text-decoration:none}
+.cn-ports{display:grid;gap:.6rem;margin:0;padding:0;list-style:none}
+.cn-ports li{display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+.cn-ports span{display:flex;flex-direction:column;line-height:1.25;color:#f1e9d6}
+.cn-ports small{color:#9aa69a}
+.cn-ports .btn{min-height:2.2rem;padding:.25rem .95rem;font-size:.88rem}
+.shell[data-variant=C] footer{grid-column:3;grid-row:2;width:auto;margin:1rem 0;padding:0 .4rem;color:#a8b2a4;font-size:.8rem;text-shadow:0 1px 4px #000}
+@media (max-width:1180px){
+  .shell[data-variant=C]{grid-template-columns:15.5rem minmax(0,40rem);grid-template-rows:auto auto}
+  .shell[data-variant=C] main,.shell[data-variant=C]:has(cc-home) main{grid-row:1}
+  .cn-aside{display:none}
+  .shell[data-variant=C] footer{grid-column:2;grid-row:2;margin-top:0}
+}
+@media (max-width:800px){
+  .shell[data-variant=C]{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;padding:0}
+  .shell[data-variant=C] .hull{position:fixed;inset:auto 0 0 0;top:auto;z-index:30;flex-direction:row;flex-wrap:nowrap;justify-content:space-around;align-items:center;height:auto;padding:.4rem .6rem max(.4rem,env(safe-area-inset-bottom));border:0;border-top:1px solid var(--hair);border-radius:0;background:rgb(7 13 12/.96)}
+  .shell[data-variant=C] .hull .brand{margin:0}
+  .shell[data-variant=C] .hull .brand span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .shell[data-variant=C] .hull .mark{width:2.2rem}
+  .shell[data-variant=C] .hull nav{flex:2 1 auto;min-width:0}
+  .shell[data-variant=C] .hull nav ul{display:flex;justify-content:space-around;flex-wrap:nowrap}
+  .shell[data-variant=C] .hull nav a{flex-direction:column;gap:.15rem;min-height:3rem;padding:.3rem .9rem;font-size:.75rem;border-radius:12px}
+  .cn-sail,.cn-me{display:none!important}
+  .shell[data-variant=C] main,.shell[data-variant=C]:has(cc-home) main{grid-column:1;grid-row:1;min-height:100dvh;margin:0;border:0;border-radius:0}
+  .shell[data-variant=C] footer{grid-column:1;grid-row:2;margin:0;padding:1rem 1.2rem 9rem;background:rgb(7 13 12/.9)}
+  body:has(.shell[data-variant=C]) .proto-switcher{bottom:5rem}
+}

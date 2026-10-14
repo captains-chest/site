@@ -5,10 +5,16 @@
   <source media="(max-width: 800px)" srcset="/blackwater-sea-narrow.webp" type="image/webp" />
   <img src="/blackwater-sea.webp" alt="" width="1870" height="841" fetchpriority="high" decoding="async" />
 </picture>
-<div class="shell">
+<div class="shell" [attr.data-variant]="_variant.current()">
   <header cc-site-header></header>
   <main id="main" tabindex="-1">
     <router-outlet />
   </main>
+  @if (_variant.current() === 'C') {
+    <aside cc-proto-crow-aside></aside>
+  }
   <footer cc-site-footer></footer>
 </div>
+@if (_variant.enabled) {
+  <cc-prototype-switcher />
+}

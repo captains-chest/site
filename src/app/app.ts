@@ -3,6 +3,9 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SiteFooter } from './site-footer/site-footer';
 import { SiteHeader } from './site-header/site-header';
+import { ProtoCrowAside } from './prototype/crow-aside';
+import { PrototypeSwitcher } from './prototype/prototype-switcher';
+import { PrototypeVariant } from './prototype/variant';
 
 const seaPreloads = [
   { href: '/blackwater-sea-narrow.avif', media: '(max-width: 800px)' },
@@ -11,12 +14,13 @@ const seaPreloads = [
 
 @Component({
   selector: 'cc-root',
-  imports: [RouterOutlet, SiteHeader, SiteFooter],
+  imports: [RouterOutlet, SiteHeader, SiteFooter, ProtoCrowAside, PrototypeSwitcher],
   templateUrl: './app.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
   readonly #document = inject(DOCUMENT);
+  protected readonly _variant = inject(PrototypeVariant);
 
   constructor() {
     // A head preload is what lets the browser start this image before the body, which is what makes it the LCP request.

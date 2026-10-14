@@ -1,3 +1,8 @@
+@switch (_variant.current()) {
+  @case ('A') { <cc-home-chart-room /> }
+  @case ('B') { <cc-home-voyage /> }
+  @case ('C') { <cc-home-crows-nest /> }
+  @default {
 <header class="poster">
   <p class="eyebrow">Open seas</p>
   <h1>Small, focused tools, built with care.</h1>
@@ -19,3 +24,5 @@
     }
   }
 </section>
+  }
+}
