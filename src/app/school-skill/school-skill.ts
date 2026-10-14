@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject, input, RESPONSE_INIT } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { MsrCodeIconComponent } from '@captains-chest/material-symbols-rounded-icons';
 import { SchoolCredits } from '../school-credits/school-credits';
 import { notes, tenets } from '../school/content';
 import { displayName, principlesOf, tenetsCiting } from '../school/functions';
@@ -10,7 +11,7 @@ const notFoundStatus = 404;
 
 @Component({
   selector: 'cc-school-skill',
-  imports: [RouterLink, SkillDocs, SchoolCredits],
+  imports: [RouterLink, SkillDocs, SchoolCredits, MsrCodeIconComponent],
   templateUrl: './school-skill.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

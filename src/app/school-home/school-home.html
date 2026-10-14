@@ -7,12 +7,12 @@
     as agent skills. It isn't consensus best practice; it's the house style.
   </p>
   <p class="links">
-    <a class="btn primary" routerLink="/school/way">Learn the Way</a>
-    <a class="btn" routerLink="/school/skills">Browse {{ skillCount }} skills</a>
+    <a class="btn primary" routerLink="/school/way"><msr-explore-icon />Learn the Way</a>
+    <a class="btn" routerLink="/school/skills"><msr-menu-book-icon />Browse {{ skillCount }} skills</a>
   </p>
 </header>
 <section aria-labelledby="tenets-heading" class="section">
-  <h2 id="tenets-heading" class="eyebrow">The tenets</h2>
+  <h2 id="tenets-heading" class="title">The tenets</h2>
   @defer (on immediate; hydrate never) {
     <ol class="grid plain-list">
       @for (tenet of tenets; track tenet.slug; let index = $index) {

@@ -1,21 +1,56 @@
-<header class="poster">
-  <p class="eyebrow">Open seas</p>
-  <h1>Small, focused tools, built with care.</h1>
+<header class="hero">
+  <p class="eyebrow">Captain's Chest · Open seas</p>
+  <h1>Small, focused tools, <span>built with care.</span></h1>
   <p class="lead">Captain's Chest is a home for open-source projects by CaptainDuckay.</p>
+  <p class="links">
+    <a class="btn primary big" routerLink="/" fragment="projects"
+      ><msr-diamond-icon />See the loot</a
+    >
+    <a class="btn big" routerLink="/play"><msr-sports-esports-icon />Enter the Playground</a>
+  </p>
 </header>
-<section id="projects" aria-labelledby="projects-heading">
-  <h2 id="projects-heading" class="sr-only">Projects</h2>
+<section id="projects" class="harbour" aria-labelledby="projects-heading">
+  <h2 id="projects-heading" class="title">The loot</h2>
   @defer (on immediate; hydrate on viewport) {
-    @for (project of _projects; track project.slug) {
-      <article cc-project-card [project]="project"></article>
-    }
+    <ol class="bounties plain-list">
+      @for (project of _projects; track project.slug; let index = $index) {
+        <li><article cc-project-card [project]="project" [number]="index + 1"></article></li>
+      }
+    </ol>
   } @placeholder {
-    @for (project of _projects; track project.slug) {
-      <div class="card-skeleton" aria-hidden="true"></div>
-    }
+    <ol class="bounties plain-list" aria-hidden="true">
+      @for (project of _projects; track project.slug) {
+        <li><div class="card-skeleton bounty"></div></li>
+      }
+    </ol>
   } @loading {
-    @for (project of _projects; track project.slug) {
-      <div class="card-skeleton" aria-hidden="true"></div>
-    }
+    <ol class="bounties plain-list" aria-hidden="true">
+      @for (project of _projects; track project.slug) {
+        <li><div class="card-skeleton bounty"></div></li>
+      }
+    </ol>
   }
+</section>
+<section class="harbour" aria-labelledby="ports-heading">
+  <h2 id="ports-heading" class="title">Ports of call</h2>
+  <ul class="ports plain-list">
+    <li>
+      <a
+        cc-port-link
+        routerLink="/play"
+        [name]="'The Playground'"
+        [detail]="'Browser games, free to play'"
+        ><msr-sports-esports-icon
+      /></a>
+    </li>
+    <li>
+      <a
+        cc-port-link
+        routerLink="/school"
+        [name]="'The School'"
+        [detail]="'The house way, written as agent skills'"
+        ><msr-menu-book-icon
+      /></a>
+    </li>
+  </ul>
 </section>

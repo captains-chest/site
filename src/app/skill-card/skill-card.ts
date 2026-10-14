@@ -1,11 +1,15 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import {
+  MsrCodeIconComponent,
+  MsrMenuBookIconComponent,
+} from '@captains-chest/material-symbols-rounded-icons';
 import { displayName, skillPath } from '../school/functions';
 import type { SkillSummary } from '../school/models';
 
 @Component({
   selector: 'article[cc-skill-card]',
-  imports: [RouterLink],
+  imports: [RouterLink, MsrMenuBookIconComponent, MsrCodeIconComponent],
   templateUrl: './skill-card.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'card', '[attr.aria-labelledby]': 'headingId()' },

@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component, inject, RESPONSE_INIT } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { MsrSailingIconComponent } from '@captains-chest/material-symbols-rounded-icons';
 
 const notFoundStatus = 404;
 
 @Component({
   selector: 'cc-not-found',
-  imports: [RouterLink],
+  imports: [RouterLink, MsrSailingIconComponent],
   templateUrl: './not-found.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
