@@ -12,7 +12,11 @@
     "check:navigation": "node scripts/ci/navigation.mjs",
     "check:html": "java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only --filterpattern \".*Attribute “(ngh|ngb|jsaction|routerlink|routerlinkactive|ariacurrentwhenactive|fragment|cc-[a-z-]+|msriconsvg|ng-app-id|_ngcontent-ng-c[0-9]+)” not allowed.*\" --skip-non-html dist/site/browser dist/site/server/index.server.html",
     "check:lighthouse": "lhci autorun --config=lighthouserc.mobile.json && lhci autorun --config=lighthouserc.desktop.json",
-    "content": "node scripts/generate-skills.mjs"
+    "content": "node scripts/generate-skills.mjs",
+    "format": "vp fmt .",
+    "format:check": "vp fmt --check .",
+    "lint": "vp lint",
+    "check": "vp check"
   },
   "private": true,
   "packageManager": "pnpm@12.10.1",
@@ -37,10 +41,10 @@
     "@types/node": "^26.6.4",
     "axe-core": "^4.14.0",
     "marked": "^18.1.0",
-    "prettier": "^3.8.1",
     "puppeteer-core": "^25.13.0",
     "typescript": "~6.0.2",
     "vnu-jar": "^26.10.9",
-    "wrangler": "^4.149.0"
+    "wrangler": "^4.149.0",
+    "vite-plus": "catalog:"
   }
 }

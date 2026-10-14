@@ -12,7 +12,7 @@
     // The Worker sees every request first, so it can redirect www, block *.md and set headers.
     "run_worker_first": true,
     "html_handling": "drop-trailing-slash",
-    "not_found_handling": "none"
+    "not_found_handling": "none",
   },
   "alias": { "xhr2": "./worker/xhr2-stub.mjs" },
   "workers_dev": true,
@@ -24,7 +24,7 @@
     { "pattern": "www.captains-chest.com", "custom_domain": true },
     { "pattern": "dictator.captains-chest.com", "custom_domain": true },
     { "pattern": "play.captains-chest.com", "custom_domain": true },
-    { "pattern": "school.captains-chest.com", "custom_domain": true }
+    { "pattern": "school.captains-chest.com", "custom_domain": true },
   ],
   // `wrangler preview` refuses to run without this block. Assets and compatibility stay at the top level.
   "previews": {},
@@ -32,6 +32,6 @@
   // Skip when CI or a local build already wrote the Worker entry.
   "build": {
     "command": "test -f dist/site/server/server.mjs || pnpm run build",
-    "watch_dir": "worker"
-  }
+    "watch_dir": "worker",
+  },
 }

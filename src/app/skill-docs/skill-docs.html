@@ -3,6 +3,8 @@
   <details class="card doc">
     <summary>{{ doc.file }}</summary>
     <div class="prose" [innerHTML]="html(index) ?? ''"></div>
-    <p><a [href]="doc.sourceUrl">{{ doc.file }} on GitHub</a></p>
+    <p>
+      <a [href]="doc.sourceUrl">{{ doc.file }} on GitHub</a>
+    </p>
   </details>
 }

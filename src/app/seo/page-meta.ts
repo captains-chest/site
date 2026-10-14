@@ -36,7 +36,9 @@ export class PageMeta {
       head.querySelector('link[rel="canonical"]')?.remove();
       return;
     }
-    const link = head.querySelector<HTMLLinkElement>('link[rel="canonical"]') ?? head.appendChild(this.#document.createElement('link'));
+    const link =
+      head.querySelector<HTMLLinkElement>('link[rel="canonical"]') ??
+      head.appendChild(this.#document.createElement('link'));
     link.rel = 'canonical';
     link.href = url;
   }

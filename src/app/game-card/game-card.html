@@ -1,6 +1,10 @@
 <h3 [id]="headingId()">{{ game().name }}</h3>
 <p>{{ game().description }}</p>
 <div class="links">
-  <a class="btn primary" [href]="game().playUrl"><msr-sports-esports-icon />Play<span class="sr-only"> {{ game().name }}</span></a>
-  <a class="btn" [href]="game().sourceUrl"><msr-code-icon />GitHub<span class="sr-only"> ({{ game().name }})</span></a>
+  <a class="btn primary" [href]="game().playUrl"
+    ><msr-sports-esports-icon />Play<span class="sr-only"> {{ game().name }}</span></a
+  >
+  <a class="btn" [href]="game().sourceUrl"
+    ><msr-code-icon />GitHub<span class="sr-only"> ({{ game().name }})</span></a
+  >
 </div>

@@ -40,12 +40,18 @@ for (const { path, status } of pages) {
     await new Promise((resolve) => setTimeout(resolve, settleMs));
     await page.addScriptTag({ content: axeSource });
     const violations = await page.evaluate(async () =>
-      (await window.axe.run(document, { runOnly: ['wcag2a', 'wcag2aa', 'wcag21aa', 'best-practice'] })).violations.map(
+      (
+        await window.axe.run(document, {
+          runOnly: ['wcag2a', 'wcag2aa', 'wcag21aa', 'best-practice'],
+        })
+      ).violations.map(
         (violation) => `${violation.id}: ${violation.help} (${violation.nodes.length})`,
       ),
     );
     const statusOk = response?.status() === status;
-    console.log(`${path} [${scheme}] status ${response?.status()} · axe ${violations.length} · console errors ${errors.length}`);
+    console.log(
+      `${path} [${scheme}] status ${response?.status()} · axe ${violations.length} · console errors ${errors.length}`,
+    );
     [...violations, ...errors].forEach((line) => console.log(`  ${line}`));
     failed ||= !statusOk || violations.length > 0 || errors.length > 0;
     await page.close();

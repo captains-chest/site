@@ -2,7 +2,15 @@
 // School content: a catalog, one module per skill, lazy loaders, and /school/version.json with the commit used.
 // Set SKILLS_DIR to use an existing checkout instead of cloning (e.g. for offline work).
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
+import {
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  rmSync,
+  statSync,
+  writeFileSync,
+} from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { marked } from 'marked';
@@ -23,7 +31,11 @@ const checkout = () => {
   const dir = join(siteDir, 'content/skills');
   rmSync(dir, { recursive: true, force: true });
   mkdirSync(dirname(dir), { recursive: true });
-  execFileSync('git', ['clone', '--quiet', '--depth', '1', '--branch', branch, `${repoUrl}.git`, dir], { stdio: 'inherit' });
+  execFileSync(
+    'git',
+    ['clone', '--quiet', '--depth', '1', '--branch', branch, `${repoUrl}.git`, dir],
+    { stdio: 'inherit' },
+  );
   return dir;
 };
 
@@ -37,7 +49,8 @@ const parseSkillFile = (text, file) => {
       .filter(Boolean)
       .map(([, key, value]) => [key, value.replace(/^["']|["']$/g, '').trim()]),
   );
-  if (!meta.name || !meta.description) fail(`${file} needs "name" and "description" in its front matter`);
+  if (!meta.name || !meta.description)
+    fail(`${file} needs "name" and "description" in its front matter`);
   return { meta, body: match[2] };
 };
 
@@ -49,10 +62,15 @@ const splitDescription = (description) => {
   return { purpose: description.slice(0, cut).trim(), whenToUse: description.slice(cut).trim() };
 };
 
-const sectionHeadings = (markdown) => [...markdown.matchAll(/^##\s+(.+)$/gm)].map(([, heading]) => heading.trim());
+const sectionHeadings = (markdown) =>
+  [...markdown.matchAll(/^##\s+(.+)$/gm)].map(([, heading]) => heading.trim());
 const docOrder = (file) => (file === 'SKILL.md' ? 0 : file === 'README.md' ? 1 : 2);
 // Skill documents start at h1; shift them below the page's own h1/h2 so the outline stays valid.
-const shiftHeadings = (html) => html.replace(/<(\/?)h([1-6])\b/g, (_, slash, level) => `<${slash}h${Math.min(Number(level) + 2, 6)}`);
+const shiftHeadings = (html) =>
+  html.replace(
+    /<(\/?)h([1-6])\b/g,
+    (_, slash, level) => `<${slash}h${Math.min(Number(level) + 2, 6)}`,
+  );
 // Relative *.md links in skill docs 404 under <base href="/"> (e.g. GENERAL.md -> /GENERAL.md).
 // Point them at the matching file on GitHub in this skill folder instead.
 const rewriteRelativeMdLinks = (html, slug) =>
@@ -68,7 +86,10 @@ const rewriteRelativeMdLinks = (html, slug) =>
 
 const readSkill = (repoDir, slug) => {
   const folder = join(repoDir, slug);
-  const { meta, body } = parseSkillFile(readFileSync(join(folder, 'SKILL.md'), 'utf8'), `${slug}/SKILL.md`);
+  const { meta, body } = parseSkillFile(
+    readFileSync(join(folder, 'SKILL.md'), 'utf8'),
+    `${slug}/SKILL.md`,
+  );
   if (meta.name !== slug) fail(`${slug}/SKILL.md: name "${meta.name}" must match its folder name`);
   const docs = readdirSync(folder)
     .filter((file) => file.endsWith('.md'))
@@ -122,7 +143,7 @@ rmSync(outDir, { recursive: true, force: true });
 mkdirSync(join(outDir, 'skills'), { recursive: true });
 // The rendered docs are a separate chunk: the skill page hydrates without them (they're `hydrate never`).
 for (const skill of skills) {
-  const outline = { ...skill, docs: skill.docs.map(({ html, ...doc }) => doc) };
+  const outline = { ...skill, docs: skill.docs.map(({ html: _html, ...doc }) => doc) };
   writeFileSync(
     join(outDir, 'skills', `${skill.slug}.ts`),
     `${banner}import type { Skill } from '../../../app/school/models';\n\nexport const skill: Skill = ${JSON.stringify(outline, null, 2)};\n`,
@@ -136,7 +157,12 @@ for (const skill of skills) {
     )};\n`,
   );
 }
-const summaries = skills.map(({ slug, name, purpose, sourceUrl }) => ({ slug, name, purpose, sourceUrl }));
+const summaries = skills.map(({ slug, name, purpose, sourceUrl }) => ({
+  slug,
+  name,
+  purpose,
+  sourceUrl,
+}));
 writeFileSync(
   join(outDir, 'catalog.ts'),
   `${banner}import type { SkillsSource, SkillSummary } from '../../app/school/models';\n\n` +
@@ -147,14 +173,18 @@ writeFileSync(
   join(outDir, 'skill-loaders.ts'),
   `${banner}import type { Skill } from '../../app/school/models';\n\n` +
     `export const skillLoaders: Readonly<Record<string, () => Promise<Skill>>> = {\n` +
-    slugs.map((slug) => `  '${slug}': () => import('./skills/${slug}').then((m) => m.skill),`).join('\n') +
+    slugs
+      .map((slug) => `  '${slug}': () => import('./skills/${slug}').then((m) => m.skill),`)
+      .join('\n') +
     `\n};\n`,
 );
 writeFileSync(
   join(outDir, 'doc-loaders.ts'),
   `${banner}\n` +
     `export const docLoaders: Readonly<Record<string, () => Promise<readonly string[]>>> = {\n` +
-    slugs.map((slug) => `  '${slug}': () => import('./skills/${slug}.docs').then((m) => m.docHtml),`).join('\n') +
+    slugs
+      .map((slug) => `  '${slug}': () => import('./skills/${slug}.docs').then((m) => m.docHtml),`)
+      .join('\n') +
     `\n};\n`,
 );
 mkdirSync(join(outDir, 'public/school'), { recursive: true });
@@ -162,11 +192,24 @@ writeFileSync(
   join(outDir, 'public/school/version.json'),
   `${JSON.stringify({ skillsRepo: repoUrl, branch, sha, committedAt, skills: slugs }, null, 2)}\n`,
 );
-const sitePaths = ['/', '/play', '/dictator', '/dictator/privacy', '/school', '/school/way', '/school/skills', ...slugs.map((slug) => `/school/skills/${slug}`)];
+const sitePaths = [
+  '/',
+  '/play',
+  '/dictator',
+  '/dictator/privacy',
+  '/school',
+  '/school/way',
+  '/school/skills',
+  ...slugs.map((slug) => `/school/skills/${slug}`),
+];
 writeFileSync(
   join(outDir, 'public/sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-    sitePaths.map((path) => `  <url><loc>https://captains-chest.com${path}</loc></url>`).join('\n') +
+    sitePaths
+      .map((path) => `  <url><loc>https://captains-chest.com${path}</loc></url>`)
+      .join('\n') +
     `\n</urlset>\n`,
 );
-console.log(`skills: ${slugs.length} skills from ${repoUrl}@${sha.slice(0, 7)} (${slugs.join(', ')}), ${tenets.length} tenets`);
+console.log(
+  `skills: ${slugs.length} skills from ${repoUrl}@${sha.slice(0, 7)} (${slugs.join(', ')}), ${tenets.length} tenets`,
+);

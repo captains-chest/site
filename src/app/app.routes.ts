@@ -39,7 +39,10 @@ export const routes: Routes = [
     path: '',
     component: Home,
     title: siteName,
-    data: meta({ description: "Captain's Chest: small, focused open-source tools by CaptainDuckay.", path: '/' }),
+    data: meta({
+      description: "Captain's Chest: small, focused open-source tools by CaptainDuckay.",
+      path: '/',
+    }),
   },
   {
     path: 'play',
@@ -56,7 +59,8 @@ export const routes: Routes = [
     loadComponent: () => import('./school-home/school-home').then((m) => m.SchoolHome),
     title: schoolName,
     data: meta({
-      description: "The opinionated school of how Captain's Chest codes and works, written down as agent skills.",
+      description:
+        "The opinionated school of how Captain's Chest codes and works, written down as agent skills.",
       path: '/school',
       breadcrumbs: [home, school],
     }),
@@ -66,7 +70,8 @@ export const routes: Routes = [
     loadComponent: () => import('./school-way/school-way').then((m) => m.SchoolWay),
     title: `The Way · ${schoolName}`,
     data: meta({
-      description: "Seven tenets of the Captain's Chest, each drawn from what its agent skills say.",
+      description:
+        "Seven tenets of the Captain's Chest, each drawn from what its agent skills say.",
       path: '/school/way',
       breadcrumbs: [home, school, { name: 'The Way', path: '/school/way' }],
     }),
@@ -93,17 +98,20 @@ export const routes: Routes = [
     loadComponent: () => import('./dictator-page/dictator-page').then((m) => m.DictatorPage),
     title: `Dictator: offline dictation for macOS · ${siteName}`,
     data: meta({
-      description: 'Minimal, local-only dictation for macOS. Transcription runs on-device with Whisper.',
+      description:
+        'Minimal, local-only dictation for macOS. Transcription runs on-device with Whisper.',
       path: '/dictator',
       breadcrumbs: [home, dictator],
     }),
   },
   {
     path: 'dictator/privacy',
-    loadComponent: () => import('./dictator-privacy/dictator-privacy').then((m) => m.DictatorPrivacy),
+    loadComponent: () =>
+      import('./dictator-privacy/dictator-privacy').then((m) => m.DictatorPrivacy),
     title: `Dictator privacy policy · ${siteName}`,
     data: meta({
-      description: 'Dictator for Android and iOS collects no data: dictation runs offline, on the device.',
+      description:
+        'Dictator for Android and iOS collects no data: dictation runs offline, on the device.',
       path: '/dictator/privacy',
       breadcrumbs: [home, dictator, { name: 'Dictator privacy policy', path: '/dictator/privacy' }],
     }),

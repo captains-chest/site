@@ -61,13 +61,20 @@ const securityHeaders: Readonly<Record<string, string>> = {
 const angularApp = new AngularAppEngine();
 
 const cacheControlFor = (pathname: string, contentType: string): string =>
-  hashedAssetPattern.test(pathname) ? immutableCache : contentType.includes('text/html') ? htmlCache : otherCache;
+  hashedAssetPattern.test(pathname)
+    ? immutableCache
+    : contentType.includes('text/html')
+      ? htmlCache
+      : otherCache;
 
-const createNonce = (): string => btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(nonceBytes))));
+const createNonce = (): string =>
+  btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(nonceBytes))));
 
 const applyNonce = (response: Response, nonce: string): Response =>
   new HTMLRewriter()
-    .on(`[nonce="${noncePlaceholder}"]`, { element: (element) => element.setAttribute('nonce', nonce) })
+    .on(`[nonce="${noncePlaceholder}"]`, {
+      element: (element) => element.setAttribute('nonce', nonce),
+    })
     .on('[ngcspnonce]', { element: (element) => element.setAttribute('ngcspnonce', nonce) })
     // Pages are prerendered and hydrate incrementally, so route chunks aren't needed for first paint;
     // preloading them competes with the HTML and main bundle on slow mobile links (~0.4 s FCP in Lighthouse).
@@ -89,7 +96,11 @@ const withHeaders = (response: Response, pathname: string): Response => {
   if (response.ok) {
     headers.set('Cache-Control', cacheControlFor(pathname, contentType));
   }
-  const result = new Response(response.body, { status: response.status, statusText: response.statusText, headers });
+  const result = new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
   return isHtml ? applyNonce(result, nonce) : result;
 };
 
