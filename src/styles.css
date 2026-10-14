@@ -20,9 +20,9 @@ h2{margin:0 0 .5rem;font:700 clamp(1.3rem,2.6vw,1.55rem)/1.2 var(--serif);color:
 .title{display:flex;align-items:center;gap:1rem;margin:0 0 2rem;color:#f7ead0;font:700 clamp(1.7rem,3.5vw,2.3rem)/1.1 var(--serif);text-align:center;text-shadow:3px 3px 0 var(--ink)}
 .title::before,.title::after{content:"";flex:1;min-width:1.5rem;height:3px;border-radius:2px;background:linear-gradient(90deg,transparent,#c4a36a)}
 .title::after{background:linear-gradient(90deg,#c4a36a,transparent)}
-:is(main>*>header:first-child:not(.hero),main>*>article>header:first-child){max-width:46rem;margin:0 auto 2.75rem;text-align:center}
-:is(main>*>header:first-child:not(.hero),main>*>article>header:first-child) .lead{margin-inline:auto}
-:is(main>*>header:first-child:not(.hero),main>*>article>header:first-child) .links{justify-content:center}
+main>*>header:first-child:not(.hero),main>*>article>header:first-child{max-width:46rem;margin:0 auto 2.75rem;text-align:center}
+main>*>header:first-child:not(.hero) .lead,main>*>article>header:first-child .lead{margin-inline:auto}
+main>*>header:first-child:not(.hero) .links,main>*>article>header:first-child .links{justify-content:center}
 .grid{display:grid;gap:1.6rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr));list-style:none;padding:0;margin:0;min-width:0}
 .stack{display:grid;gap:1.6rem;min-width:0}
 .grid>li,.stack>li{display:grid;min-width:0}
