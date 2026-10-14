@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
-  MsrDiamondIconComponent,
   MsrMenuBookIconComponent,
   MsrSportsEsportsIconComponent,
 } from '@captains-chest/material-symbols-rounded-icons';
@@ -15,7 +14,6 @@ import { projects } from '../projects/constants';
     RouterLink,
     ProjectCard,
     PortLink,
-    MsrDiamondIconComponent,
     MsrSportsEsportsIconComponent,
     MsrMenuBookIconComponent,
   ],
