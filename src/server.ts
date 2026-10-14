@@ -22,10 +22,16 @@ interface Env {
 
 const apexHost = 'captains-chest.com';
 const wwwHost = 'www.captains-chest.com';
-/** Former subdomain whose content now lives under a path on the apex. */
+/** Former subdomains whose content now lives under a path on the apex. */
 const movedHosts: Readonly<Record<string, string>> = {
+  'dictator.captains-chest.com': '/dictator',
+  'play.captains-chest.com': '/play',
   'school.captains-chest.com': '/school',
 };
+
+const pathOnApex = (pathname: string, destination: string): string =>
+  pathname === '/' ? destination : `${destination}${pathname}`;
+
 const movedPermanently = 301;
 const notFound = 404;
 const hashedAssetPattern = /-[A-Z0-9]{8}\.(?:js|css|mjs)$/;
@@ -104,7 +110,7 @@ export default {
     if (movedTo !== undefined) {
       url.protocol = 'https:';
       url.hostname = apexHost;
-      url.pathname = `${movedTo}${url.pathname}`;
+      url.pathname = pathOnApex(url.pathname, movedTo);
       return Response.redirect(url.toString(), movedPermanently);
     }
     if (url.pathname.toLowerCase().endsWith('.md')) {
