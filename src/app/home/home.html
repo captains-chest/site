@@ -1,7 +1,10 @@
 <header class="hero">
   <p class="eyebrow">Captain's Chest · Open seas</p>
   <h1>Small, focused tools, <span>built with care.</span></h1>
-  <p class="lead">Captain's Chest is a home for open-source projects by CaptainDuckay.</p>
+  <p class="lead">
+    Captain's Chest is a home for open-source projects by
+    <a routerLink="/about">CaptainDuckay</a>.
+  </p>
   <p class="links">
     <a class="btn primary big" routerLink="/" fragment="projects">See the loot</a>
     <a class="btn big" routerLink="/play"><msr-sports-esports-icon />Enter the Playground</a>
@@ -66,6 +69,15 @@
         [name]="'Dictator'"
         [detail]="'Offline dictation for macOS'"
         ><msr-mic-icon
+      /></a>
+    </li>
+    <li>
+      <a
+        cc-port-link
+        routerLink="/about"
+        [name]="'The Captain'"
+        [detail]="'Who builds all this, and how he works'"
+        ><msr-anchor-icon
       /></a>
     </li>
   </ul>

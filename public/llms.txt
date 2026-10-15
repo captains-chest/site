@@ -9,6 +9,7 @@
 
 ## More
 
+- [About](https://captains-chest.com/about): Nicki Skipper Otte (CaptainDuckay), frontend developer in Denmark and the maker of Captain's Chest.
 - [Playground](https://captains-chest.com/play): browser games.
 - [Mods](https://captains-chest.com/mods): game mods, such as a Danish voice pack for XCOM 2: War of the Chosen.
 - [School of the Captain's Chest](https://captains-chest.com/school): the agent skills that describe how Captain's Chest codes and works.

@@ -1,0 +1,125 @@
+<header>
+  <img
+    class="portrait"
+    [src]="portrait.src"
+    [srcset]="portrait.src + ' 1x, ' + portrait.src2x + ' 2x'"
+    [width]="portrait.size"
+    [height]="portrait.size"
+    [alt]="portrait.alt"
+    fetchpriority="high"
+    decoding="async"
+  />
+  <p class="eyebrow">Captain's Chest · The Captain</p>
+  <h1>{{ fullName }}</h1>
+  <p class="lead">
+    Frontend developer in Denmark, sailing under the Angular flag. Online I go by {{ handle }}, and
+    everything in this chest is something I built, on my own time and my own terms.
+  </p>
+  <p class="links">
+    <a class="btn primary" [href]="linkedIn.href">{{ linkedIn.label }}</a>
+    <a class="btn" [href]="gitHub.href">{{ gitHub.label }}</a>
+  </p>
+</header>
+
+<section class="section" aria-labelledby="papers-heading">
+  <h2 id="papers-heading" class="title">Ship's papers</h2>
+  <dl cc-ships-papers [entries]="papers"></dl>
+</section>
+
+<section class="section" aria-labelledby="angular-heading">
+  <h2 id="angular-heading" class="title">Under the Angular flag</h2>
+  <p class="aside intro">
+    Angular is my framework of choice, from AngularJS days to zoneless signals. Some of what I've
+    done with it:
+  </p>
+  <ul class="grid pairs">
+    @for (note of angularNotes; track note.slug) {
+      <li><article cc-note-card [note]="note"></article></li>
+    }
+  </ul>
+</section>
+
+<section class="section" aria-labelledby="principles-heading">
+  <h2 id="principles-heading" class="title">How I work</h2>
+  <ul class="grid pairs">
+    @for (principle of principles; track principle.slug) {
+      <li><article cc-note-card [note]="principle"></article></li>
+    }
+  </ul>
+  <p class="aside">
+    The way I write code is written down too, as agent skills:
+    <a routerLink="/school/way">the tenets of the School</a>.
+  </p>
+</section>
+
+<section class="section" aria-labelledby="log-heading">
+  <h2 id="log-heading" class="title">Ship's log</h2>
+  <ol class="log plain-list">
+    @for (employer of employers; track employer.slug) {
+      <li><article cc-employer-card [employer]="employer"></article></li>
+    }
+  </ol>
+</section>
+
+<section class="section" aria-labelledby="chest-heading">
+  <h2 id="chest-heading" class="title">What I build on the side</h2>
+  <ul class="ports plain-list">
+    <li>
+      <a
+        cc-port-link
+        routerLink="/dictator"
+        [name]="'Dictator'"
+        [detail]="'Offline dictation for macOS, on-device Whisper'"
+        ><msr-mic-icon
+      /></a>
+    </li>
+    <li>
+      <a
+        cc-port-link
+        href="https://icons.captains-chest.com"
+        [name]="'Material Symbols Rounded Icons'"
+        [detail]="'Angular standalone icon components, the ones on this site'"
+        ><msr-code-icon
+      /></a>
+    </li>
+    <li>
+      <a
+        cc-port-link
+        routerLink="/school"
+        [name]="'The School'"
+        [detail]="'My way of working, written as agent skills'"
+        ><msr-menu-book-icon
+      /></a>
+    </li>
+    <li>
+      <a
+        cc-port-link
+        routerLink="/play"
+        [name]="'The Playground'"
+        [detail]="'Browser games, free to play'"
+        ><msr-sports-esports-icon
+      /></a>
+    </li>
+    <li>
+      <a
+        cc-port-link
+        routerLink="/mods"
+        [name]="'Mods'"
+        [detail]="'Game mods, like a Danish voice pack for XCOM 2'"
+        ><msr-extension-icon
+      /></a>
+    </li>
+  </ul>
+</section>
+
+<section class="section card hail" aria-labelledby="hail-heading">
+  <h2 id="hail-heading">Hailing the ship?</h2>
+  <p>
+    I'm not looking for a new role. I've found a crew that gives me the freedom and trust described
+    above, and that's rare enough that I'm staying aboard. I'm always glad to talk frontend, Angular
+    or tooling, though.
+  </p>
+  <p class="links">
+    <a class="btn primary" [href]="linkedIn.href">Say ahoy on {{ linkedIn.label }}</a>
+  </p>
+</section>

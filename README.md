@@ -17,7 +17,7 @@ Cloudflare's edge. Content routes are prerendered at build time and served as st
   dictator.captains-chest.com.
 - Hydration: full hydration with incremental hydration and event replay; the project cards are a
   `@defer (on viewport; hydrate on viewport)` block.
-- Routes: `/`, `/play` (games), `/school` (intro), `/school/way` (tenets), `/school/skills` (catalog),
+- Routes: `/`, `/play` (games), `/mods`, `/about` (who's behind the chest), `/school` (intro), `/school/way` (tenets), `/school/skills` (catalog),
   `/school/skills/<slug>`, `/dictator`, and `/dictator/privacy`, all prerendered (skill slugs via
   `getPrerenderParams`). A request to the root of a former subdomain redirects to that path; a deeper path is
   preserved, so `school.captains-chest.com/way` goes to `/school/way` and `dictator.captains-chest.com/privacy`

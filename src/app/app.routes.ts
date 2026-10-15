@@ -3,6 +3,7 @@ import { skillLoaders } from '../content/generated/skill-loaders';
 import { schoolName } from './school/constants';
 import { displayName, skillPath } from './school/functions';
 import type { Skill } from './school/models';
+import { fullName } from './about/constants';
 import { notFoundMeta, notFoundTitle, routeMetaKey, siteName } from './seo/constants';
 import type { Breadcrumb, RouteMeta, RouteMetaSource } from './seo/models';
 
@@ -62,6 +63,16 @@ export const routes: Routes = [
         'Game mods by CaptainDuckay, starting with a Danish voice pack for XCOM 2: War of the Chosen.',
       path: '/mods',
       breadcrumbs: [home, { name: 'Mods', path: '/mods' }],
+    }),
+  },
+  {
+    path: 'about',
+    loadComponent: () => import('./about-page/about-page').then((m) => m.AboutPage),
+    title: `${fullName}, frontend developer · ${siteName}`,
+    data: meta({
+      description: `${fullName} (CaptainDuckay): Angular frontend developer in Denmark, and the maker behind Captain's Chest.`,
+      path: '/about',
+      breadcrumbs: [home, { name: 'About', path: '/about' }],
     }),
   },
   {

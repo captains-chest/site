@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
+  MsrAnchorIconComponent,
   MsrExtensionIconComponent,
   MsrMenuBookIconComponent,
   MsrMicIconComponent,
@@ -20,6 +21,7 @@ import { projects } from '../projects/constants';
     MsrMenuBookIconComponent,
     MsrExtensionIconComponent,
     MsrMicIconComponent,
+    MsrAnchorIconComponent,
   ],
   templateUrl: './home.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

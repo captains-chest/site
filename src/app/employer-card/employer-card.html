@@ -1,0 +1,10 @@
+<p class="eyebrow">{{ employer().location }}</p>
+<h3 [id]="headingId()">{{ employer().company }}</h3>
+@if (employer().about; as about) {
+  <p class="about">{{ about }}</p>
+}
+<ol class="positions plain-list">
+  @for (position of employer().positions; track position.start) {
+    <li cc-position-entry [position]="position"></li>
+  }
+</ol>
