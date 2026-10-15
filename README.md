@@ -10,8 +10,9 @@ Cloudflare's edge. Content routes are prerendered at build time and served as st
 - `src/server.ts` is the Worker: it redirects www to the apex (301), redirects the former subdomains
   `play.captains-chest.com`, `school.captains-chest.com`, and `dictator.captains-chest.com` to `/play`, `/school`,
   and `/dictator`, returns 404 for `*.md`, serves static assets, falls back to `AngularAppEngine` for SSR, and sets
-  Cache-Control, security headers and a per-request CSP nonce (pages are built with `ngCspNonce="__CSP_NONCE__"`,
-  and the Worker swaps in a fresh nonce).
+  Cache-Control, security headers and a static CSP (`script-src 'self'`; `style-src 'self' 'unsafe-inline'`).
+  HTML is safe to cache: there are no per-request nonces. A post-build step (`scripts/fix-csp-html.mjs`) turns
+  Beasties' `media="print"` stylesheet links into `media="all"` so first paint does not depend on an inline script.
 - `wrangler.jsonc`: Worker `captains-chest-site` with static assets from `dist/site/browser`, and custom domains
   captains-chest.com, www.captains-chest.com, play.captains-chest.com, school.captains-chest.com, and
   dictator.captains-chest.com.
