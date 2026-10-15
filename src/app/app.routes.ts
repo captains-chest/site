@@ -55,6 +55,17 @@ export const routes: Routes = [
     }),
   },
   {
+    path: 'mods',
+    loadComponent: () => import('./mods-page/mods-page').then((m) => m.ModsPage),
+    title: `Mods · ${siteName}`,
+    data: meta({
+      description:
+        'Game mods by CaptainDuckay, starting with a Danish voice pack for XCOM 2: War of the Chosen.',
+      path: '/mods',
+      breadcrumbs: [home, { name: 'Mods', path: '/mods' }],
+    }),
+  },
+  {
     path: 'school',
     loadComponent: () => import('./school-home/school-home').then((m) => m.SchoolHome),
     title: schoolName,

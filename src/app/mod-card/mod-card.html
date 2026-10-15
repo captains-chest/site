@@ -1,0 +1,26 @@
+<img
+  class="mod-thumb"
+  [src]="mod().image.src"
+  [srcset]="mod().image.src + ' 1x, ' + mod().image.src2x + ' 2x'"
+  [width]="mod().image.width"
+  [height]="mod().image.height"
+  [alt]="mod().image.alt"
+  [attr.loading]="priority() ? null : 'lazy'"
+  [attr.fetchpriority]="priority() ? 'high' : null"
+  decoding="async"
+/>
+<div class="mod-body">
+  <h3 [id]="headingId()">{{ mod().name }}</h3>
+  <p class="eyebrow">{{ mod().game }} · by CaptainDuckay</p>
+  <p>{{ mod().description }}</p>
+  <ul class="mod-facts">
+    @for (fact of mod().facts; track fact) {
+      <li>{{ fact }}</li>
+    }
+  </ul>
+  <div class="links">
+    <a class="btn primary" [href]="mod().url"
+      >{{ mod().linkLabel }}<span class="sr-only"> ({{ mod().name }})</span></a
+    >
+  </div>
+</div>

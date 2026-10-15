@@ -742,3 +742,26 @@ details,
     padding-inline: 1.25rem;
   }
 }
+.card.mod-card {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+.mod-thumb {
+  flex: none;
+  width: 10rem;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border: 3px solid var(--ink);
+  border-radius: 10px;
+}
+.mod-body {
+  flex: 1 1 18rem;
+  min-width: 0;
+}
+.mod-facts {
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
+}
