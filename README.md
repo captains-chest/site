@@ -52,4 +52,4 @@ Requires Node 22+ and pnpm.
 
 Pushes to `main` are deployed by Workers Builds with the same build and `npx wrangler deploy`. The old Cloudflare
 Pages project `captains-chest-site` is not attached to any domain; don't deploy to it.
-CI (`.github/workflows/ci.yml`) builds, validates the HTML, runs axe and the Lighthouse budgets (`lighthouserc.*.json`) against a local Worker preview.
+CI (`.github/workflows/ci.yml`) builds, validates the HTML, runs axe and the Lighthouse budgets (`lighthouserc.*.json`, including a 130 kB script transfer budget per page) against a local Worker preview.
