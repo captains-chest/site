@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { type IsActiveMatchOptions, RouterLink, RouterLinkActive } from '@angular/router';
 import {
+  MsrExtensionIconComponent,
   MsrMenuBookIconComponent,
   MsrSportsEsportsIconComponent,
 } from '@captains-chest/material-symbols-rounded-icons';
@@ -15,7 +16,13 @@ const sectionActive: IsActiveMatchOptions = {
 
 @Component({
   selector: 'nav[cc-site-nav]',
-  imports: [RouterLink, RouterLinkActive, MsrSportsEsportsIconComponent, MsrMenuBookIconComponent],
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+    MsrSportsEsportsIconComponent,
+    MsrExtensionIconComponent,
+    MsrMenuBookIconComponent,
+  ],
   templateUrl: './site-nav.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { 'aria-label': 'Main' },

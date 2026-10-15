@@ -19,6 +19,7 @@ minimumReleaseAgeExclude:
   - '@voidzero-dev/vite-plus-win32-arm64-msvc@1.2.0'
   - '@voidzero-dev/vite-plus-win32-x64-msvc@1.2.0'
   - vite-plus@1.2.0
+  - '@captains-chest/material-symbols-rounded-icons@2.2.2'
 overrides:
   vite@*: 'catalog:'
 peerDependencyRules:

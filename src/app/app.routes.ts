@@ -3,7 +3,6 @@ import { skillLoaders } from '../content/generated/skill-loaders';
 import { schoolName } from './school/constants';
 import { displayName, skillPath } from './school/functions';
 import type { Skill } from './school/models';
-import { Home } from './home/home';
 import { notFoundMeta, notFoundTitle, routeMetaKey, siteName } from './seo/constants';
 import type { Breadcrumb, RouteMeta, RouteMetaSource } from './seo/models';
 
@@ -37,7 +36,7 @@ const meta = (source: RouteMetaSource) => ({ [routeMetaKey]: source });
 export const routes: Routes = [
   {
     path: '',
-    component: Home,
+    loadComponent: () => import('./home/home').then((m) => m.Home),
     title: siteName,
     data: meta({
       description: "Captain's Chest: small, focused open-source tools by CaptainDuckay.",
