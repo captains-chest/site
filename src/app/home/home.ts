@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
+  MsrExtensionIconComponent,
   MsrMenuBookIconComponent,
+  MsrMicIconComponent,
   MsrSportsEsportsIconComponent,
 } from '@captains-chest/material-symbols-rounded-icons';
 import { PortLink } from '../port-link/port-link';
@@ -16,6 +18,8 @@ import { projects } from '../projects/constants';
     PortLink,
     MsrSportsEsportsIconComponent,
     MsrMenuBookIconComponent,
+    MsrExtensionIconComponent,
+    MsrMicIconComponent,
   ],
   templateUrl: './home.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
