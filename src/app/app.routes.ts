@@ -111,7 +111,7 @@ export const routes: Routes = [
     title: `Dictator privacy policy · ${siteName}`,
     data: meta({
       description:
-        'Dictator for Android and iOS collects no data: dictation runs offline, on the device.',
+        'Dictator for Android and iOS collects no data. Speech recognition runs on-device; on Android the only network use is a one-time model download you start.',
       path: '/dictator/privacy',
       breadcrumbs: [home, dictator, { name: 'Dictator privacy policy', path: '/dictator/privacy' }],
     }),

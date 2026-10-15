@@ -7,7 +7,7 @@
     </p>
     <p>
       <small
-        >Effective 11 October 2026 · Applies to Dictator for Android
+        >Effective 15 October 2026 · Applies to Dictator for Android
         (com.captainduckay.dictator.android) and Dictator for iOS (com.captainduckay.dictator.ios),
         published by CaptainDuckay.</small
       >
@@ -26,27 +26,31 @@
     <h2 id="microphone-heading">The microphone</h2>
     <p>
       Dictator uses the microphone only while you are dictating, to turn your speech into text on
-      the device with a built-in speech model (OpenAI Whisper). The recording is kept in memory only
-      until it has been transcribed and is then discarded. It is never saved to storage and never
-      leaves the device.
+      the device with an on-device speech model. On Android you choose NVIDIA Parakeet or OpenAI
+      Whisper on first launch; on iOS the app uses a bundled Whisper model. The recording is kept in
+      memory only until it has been transcribed and is then discarded. It is never saved to storage
+      and never leaves the device.
     </p>
   </section>
 
   <section aria-labelledby="offline-heading">
     <h2 id="offline-heading">Offline by design</h2>
     <p>
-      Speech recognition runs entirely on your phone. The Android app does not have the internet
-      permission at all. The speech model is installed together with the app, so the apps never
-      download it or anything else.
+      Speech recognition runs entirely on your phone. Audio and transcripts never leave the device.
+      On Android, the chosen speech model is downloaded once after you confirm (Wi-Fi recommended);
+      that download from Hugging Face is the only network use, and every file is checked against a
+      SHA-256 manifest that ships inside the app. On iOS, the speech model is bundled with the app
+      and the app does not use the network for dictation.
     </p>
   </section>
 
   <section aria-labelledby="text-heading">
     <h2 id="text-heading">Your text</h2>
     <p>
-      The Dictator keyboard types the transcribed text into the field you are using. It reads a few
-      characters before the cursor only to get spacing and capital letters right. It keeps no
-      history, does not log what you type or say, and never uses the clipboard. On iOS, the finished
+      On Android, a floating microphone appears when a text field is focused. Dictator types the
+      transcript into that field through an accessibility service. The service reads only the
+      focused field (a little context before the cursor for spacing and capitals), stores nothing,
+      and never uses the clipboard. On iOS, a custom keyboard shows the mic button; the finished
       transcript is passed from the app to the keyboard on the device and deleted as soon as it has
       been typed.
     </p>
@@ -55,7 +59,8 @@
   <section aria-labelledby="stored-heading">
     <h2 id="stored-heading">What is stored on the device</h2>
     <p>
-      Only your settings, such as the dictation language. Uninstalling the app removes them. Android
+      Your settings, such as the dictation language and (on Android) which speech model you chose,
+      plus the downloaded speech model files on Android. Uninstalling the app removes them. Android
       backups of the app are turned off.
     </p>
   </section>
