@@ -195,6 +195,7 @@ writeFileSync(
 const sitePaths = [
   '/',
   '/play',
+  '/mods',
   '/dictator',
   '/dictator/privacy',
   '/school',

@@ -1,7 +1,9 @@
 <p>
   <small
     >© {{ year }} Captain's Chest ·
-    <a href="https://github.com/captains-chest">github.com/captains-chest</a> ·
+    @if (showGitHub()) {
+      <a href="https://github.com/captains-chest">github.com/captains-chest</a> ·
+    }
     <a routerLink="/dictator/privacy">Dictator privacy</a></small
   >
 </p>

@@ -1,0 +1,13 @@
+<header>
+  <p class="eyebrow">Captain's Chest · Mods</p>
+  <h1>Mods</h1>
+  <p class="lead">Game mods by CaptainDuckay.</p>
+</header>
+<section aria-labelledby="mods-heading">
+  <h2 id="mods-heading" class="eyebrow">Mods</h2>
+  <ul class="stack plain-list">
+    @for (mod of mods; track mod.slug; let first = $first) {
+      <li><article cc-mod-card [mod]="mod" [priority]="first"></article></li>
+    }
+  </ul>
+</section>

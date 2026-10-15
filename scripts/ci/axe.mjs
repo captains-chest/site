@@ -9,6 +9,7 @@ const baseUrl = process.env.PREVIEW_URL ?? 'http://127.0.0.1:8787';
 const pages = [
   { path: '/', status: 200 },
   { path: '/play', status: 200 },
+  { path: '/mods', status: 200 },
   { path: '/dictator', status: 200 },
   { path: '/dictator/privacy', status: 200 },
   { path: '/school', status: 200 },

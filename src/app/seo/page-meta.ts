@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { breadcrumbsScriptId, ogImage, siteName } from './constants';
 import { absoluteUrl, breadcrumbJsonLd } from './functions';
@@ -11,9 +11,13 @@ export class PageMeta {
   readonly #document = inject(DOCUMENT);
   readonly #meta = inject(Meta);
   readonly #title = inject(Title);
+  readonly #path = signal<string | undefined>(undefined);
+  /** Canonical path of the current page (undefined on the 404 page). */
+  readonly path = this.#path.asReadonly();
 
   set(page: PageMetadata): void {
     const url = page.path === undefined ? undefined : absoluteUrl(page.path);
+    this.#path.set(page.path);
     this.#title.setTitle(page.title);
     if (page.noindex) this.#meta.updateTag({ name: 'robots', content: 'noindex' });
     else this.#meta.removeTag('name="robots"');

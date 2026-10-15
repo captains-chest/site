@@ -90,6 +90,15 @@ expect('Playground -> Home', await head(), {
   canonical: 'https://captains-chest.com/',
   current: ["Captain's Chest"],
 });
+await click('nav a[href="/mods"]');
+expect('Home -> Mods', await head(), {
+  path: '/mods',
+  title: "Mods · Captain's Chest",
+  canonical: 'https://captains-chest.com/mods',
+  robots: null,
+  current: ['Mods'],
+});
+await click('header a.brand');
 await click('article.card a.btn.primary[href="/dictator"]');
 expect('Home -> Dictator', await head(), {
   path: '/dictator',
