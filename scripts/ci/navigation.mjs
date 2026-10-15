@@ -98,6 +98,14 @@ expect('Home -> Mods', await head(), {
   robots: null,
   current: ['Mods'],
 });
+await click('nav a[href="/about"]');
+expect('Mods -> About', await head(), {
+  path: '/about',
+  title: "Nicki Skipper Otte, frontend developer · Captain's Chest",
+  canonical: 'https://captains-chest.com/about',
+  robots: null,
+  current: ['About'],
+});
 await click('header a.brand');
 await click('article.card a.btn.primary[href="/dictator"]');
 expect('Home -> Dictator', await head(), {

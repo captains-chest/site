@@ -765,3 +765,259 @@ details,
   margin: 0 0 1rem;
   padding-left: 1.2rem;
 }
+.aside {
+  margin: 1.5rem 0 0;
+  color: #ead8b2;
+  text-align: center;
+}
+.aside.intro {
+  max-width: 40rem;
+  margin: -1rem auto 2rem;
+}
+.portrait {
+  display: block;
+  width: 11rem;
+  height: auto;
+  margin: 0 auto 1.5rem;
+  border: 4px solid var(--ink);
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow:
+    0 0 0 4px #c49a4e,
+    0 0 0 7px var(--ink),
+    7px 8px 0 4px var(--ink),
+    0 0 48px 10px rgb(140 230 90 / 0.3);
+}
+.papers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr));
+  gap: 1.1rem 2rem;
+  margin: 0;
+  padding: 1.8rem 2rem;
+  border: 3px solid var(--ink);
+  border-radius: 6px;
+  color: #2a1a0a;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgb(255 250 230 / 0.6), transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgb(120 80 30 / 0.28), transparent 60%),
+    linear-gradient(170deg, #f1e2bd, #dcc290);
+  box-shadow: 6px 6px 0 var(--ink);
+  rotate: -0.6deg;
+}
+.papers dt {
+  color: #5d4520;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.papers dd {
+  margin: 0.15rem 0 0;
+  font: 700 1.25rem/1.2 var(--serif);
+}
+.log {
+  position: relative;
+  display: grid;
+  gap: 1.6rem;
+  padding-left: 2.4rem;
+}
+.log::before {
+  content: '';
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 0.7rem;
+  width: 4px;
+  border-radius: 2px;
+  background: repeating-linear-gradient(180deg, #e0c088 0 6px, #8a6738 6px 12px);
+  box-shadow: 0 0 0 1px var(--ink);
+}
+.log > li {
+  position: relative;
+  display: grid;
+  min-width: 0;
+}
+.log > li::before {
+  content: '';
+  position: absolute;
+  top: 1.6rem;
+  left: -2.25rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f6dc9c, #c49a4e 60%, #8a6326);
+}
+.log > li:first-child::before {
+  background: radial-gradient(circle at 35% 30%, #dcff9c, #6fae45 60%, #355c2d);
+  box-shadow: 0 0 14px 3px rgb(140 230 90 / 0.55);
+}
+.voyage .about {
+  margin-bottom: 0.8rem;
+}
+.positions {
+  display: grid;
+}
+.position {
+  padding: 1rem 0 0;
+}
+.position + .position {
+  margin-top: 1rem;
+  border-top: 2px dashed rgb(236 208 147 / 0.3);
+}
+.position h4 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  color: #fff3d6;
+  font: 700 1.15rem/1.2 var(--serif);
+}
+.card .position p {
+  margin: 0.2rem 0 0.5rem;
+}
+.card .position .when {
+  color: #d6bd8a;
+  font-size: 0.9rem;
+}
+.badge {
+  padding: 0.1rem 0.55rem;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--moss);
+  color: #f6f9f1;
+  font:
+    700 0.7rem/1.4 system-ui,
+    sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.chips > li {
+  padding: 0.15rem 0.6rem;
+  border: 1px solid rgb(236 208 147 / 0.35);
+  border-radius: 999px;
+  background: rgb(0 0 0 / 0.3);
+  color: #ead8b2;
+  font-size: 0.8rem;
+}
+.card.hail {
+  align-items: center;
+  text-align: center;
+}
+.hail > p {
+  max-width: 38rem;
+}
+.grid.pairs {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+}
+@media (max-width: 480px) {
+  .log {
+    padding-left: 1.9rem;
+  }
+  .log::before {
+    left: 0.5rem;
+  }
+  .log > li::before {
+    left: -1.85rem;
+  }
+  .papers {
+    padding: 1.4rem 1.3rem;
+  }
+}
+/* The nav is a popover: a left sidebar on small screens, reset to the inline bar above them. */
+.menu-toggle,
+.hull nav .menu-close {
+  --msr-icon-size: 1.6rem;
+  display: none;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 2px solid var(--ink);
+  border-radius: 9px;
+  background: linear-gradient(#1f1b15, #14110d);
+  color: #f6e7c6;
+  box-shadow:
+    inset 0 1px 0 rgb(255 240 210 / 0.12),
+    3px 3px 0 var(--ink);
+  cursor: pointer;
+}
+.menu-toggle:focus-visible,
+.hull nav .menu-close:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+@media (min-width: 701px) {
+  .hull nav[popover] {
+    position: static;
+    display: block;
+    width: auto;
+    height: auto;
+    margin: 0 0 0 auto;
+    padding: 0;
+    overflow: visible;
+    border: 0;
+    background: none;
+    color: inherit;
+  }
+}
+@keyframes drawer-in {
+  from {
+    translate: -105% 0;
+  }
+}
+@media (max-width: 700px) {
+  .hull {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding-block: 0.35rem;
+  }
+  .menu-toggle,
+  .hull nav .menu-close {
+    display: grid;
+  }
+  .hull nav[popover] {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: min(19rem, 82vw);
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    padding: 1.25rem 1.1rem;
+    overflow-y: auto;
+    border: 0;
+    border-right: 3px solid var(--ink);
+    color: inherit;
+    background:
+      radial-gradient(circle at calc(100% - 12px) 12px, var(--rivet)),
+      radial-gradient(circle at calc(100% - 12px) calc(100% - 12px), var(--rivet)), var(--plank);
+    box-shadow:
+      inset -1px 0 0 rgb(255 220 160 / 0.3),
+      6px 0 0 var(--ink);
+  }
+  .hull nav[popover]:popover-open {
+    animation: drawer-in 0.25s ease-out;
+  }
+  .hull nav[popover]::backdrop {
+    background: rgb(2 6 5 / 0.65);
+  }
+  .hull nav .menu-close {
+    margin: 0 0 1.25rem auto;
+  }
+  .hull nav ul {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .hull nav a {
+    --msr-icon-size: 1.5rem;
+    min-height: 3rem;
+    padding: 0.6rem 1rem;
+    font-size: 1.1rem;
+  }
+}

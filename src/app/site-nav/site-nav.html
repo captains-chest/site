@@ -1,3 +1,6 @@
+<button class="menu-close" type="button" popovertarget="site-nav" popovertargetaction="hide">
+  <msr-close-icon /><span class="sr-only">Close menu</span>
+</button>
 <ul>
   <li>
     <a
@@ -24,6 +27,15 @@
       [routerLinkActiveOptions]="_sectionActive"
       ariaCurrentWhenActive="page"
       ><msr-menu-book-icon />School</a
+    >
+  </li>
+  <li>
+    <a
+      routerLink="/about"
+      routerLinkActive
+      [routerLinkActiveOptions]="_sectionActive"
+      ariaCurrentWhenActive="page"
+      ><msr-anchor-icon />About</a
     >
   </li>
 </ul>

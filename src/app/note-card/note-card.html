@@ -1,0 +1,11 @@
+<h3 [id]="headingId()">{{ note().title }}</h3>
+<p>{{ note().summary }}</p>
+@if (note().link; as link) {
+  <p class="links">
+    @if (isSitePath(link.href)) {
+      <a class="btn" [routerLink]="link.href">{{ link.label }}</a>
+    } @else {
+      <a class="btn" [href]="link.href">{{ link.label }}</a>
+    }
+  </p>
+}

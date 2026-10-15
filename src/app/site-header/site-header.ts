@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { type IsActiveMatchOptions, RouterLink, RouterLinkActive } from '@angular/router';
+import { MsrMenuIconComponent } from '@captains-chest/material-symbols-rounded-icons';
 import { SiteNav } from '../site-nav/site-nav';
 
 const homeLinkActive: IsActiveMatchOptions = {
@@ -11,7 +12,7 @@ const homeLinkActive: IsActiveMatchOptions = {
 
 @Component({
   selector: 'header[cc-site-header]',
-  imports: [RouterLink, RouterLinkActive, SiteNav],
+  imports: [RouterLink, RouterLinkActive, SiteNav, MsrMenuIconComponent],
   templateUrl: './site-header.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'hull' },

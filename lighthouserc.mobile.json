@@ -4,6 +4,7 @@
       "url": [
         "http://127.0.0.1:8787/",
         "http://127.0.0.1:8787/mods",
+        "http://127.0.0.1:8787/about",
         "http://127.0.0.1:8787/dictator",
         "http://127.0.0.1:8787/dictator/privacy",
         "http://127.0.0.1:8787/school/skills/project-code-standards"

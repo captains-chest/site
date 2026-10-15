@@ -6,6 +6,7 @@ export const serverRoutes: ServerRoute[] = [
   { path: '', renderMode: RenderMode.Prerender },
   { path: 'play', renderMode: RenderMode.Prerender },
   { path: 'mods', renderMode: RenderMode.Prerender },
+  { path: 'about', renderMode: RenderMode.Prerender },
   { path: 'dictator', renderMode: RenderMode.Prerender },
   { path: 'dictator/privacy', renderMode: RenderMode.Prerender },
   { path: 'school', renderMode: RenderMode.Prerender },

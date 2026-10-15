@@ -1,0 +1,22 @@
+<h4>
+  {{ position().title }}
+  @if (current()) {
+    <span class="badge">Now</span>
+  }
+</h4>
+<p class="when">
+  <time [attr.datetime]="position().start">{{ formatYearMonth(position().start) }}</time> –
+  @if (position().end; as end) {
+    <time [attr.datetime]="end">{{ formatYearMonth(end) }}</time>
+  } @else {
+    present
+  }
+</p>
+@if (position().summary; as summary) {
+  <p>{{ summary }}</p>
+}
+<ul class="chips plain-list" aria-label="Skills">
+  @for (skill of position().skills; track skill) {
+    <li>{{ skill }}</li>
+  }
+</ul>
