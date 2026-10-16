@@ -1,12 +1,10 @@
 import { ChangeDetectionStrategy, Component, ElementRef, inject } from '@angular/core';
 import { type IsActiveMatchOptions, RouterLink, RouterLinkActive } from '@angular/router';
-import {
-  MsrAnchorIconComponent,
-  MsrCloseIconComponent,
-  MsrExtensionIconComponent,
-  MsrMenuBookIconComponent,
-  MsrSportsEsportsIconComponent,
-} from '@captains-chest/material-symbols-rounded-icons';
+import { MsrAnchorIconComponent } from '@captains-chest/material-symbols-rounded-icons/anchor';
+import { MsrCloseIconComponent } from '@captains-chest/material-symbols-rounded-icons/close';
+import { MsrExtensionIconComponent } from '@captains-chest/material-symbols-rounded-icons/extension';
+import { MsrMenuBookIconComponent } from '@captains-chest/material-symbols-rounded-icons/menu-book';
+import { MsrSportsEsportsIconComponent } from '@captains-chest/material-symbols-rounded-icons/sports-esports';
 
 /** A section link stays active on every page below it, e.g. School on /school/skills/<slug>. */
 const sectionActive: IsActiveMatchOptions = {

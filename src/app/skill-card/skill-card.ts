@@ -1,9 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import {
-  MsrCodeIconComponent,
-  MsrMenuBookIconComponent,
-} from '@captains-chest/material-symbols-rounded-icons';
+import { MsrCodeIconComponent } from '@captains-chest/material-symbols-rounded-icons/code';
+import { MsrMenuBookIconComponent } from '@captains-chest/material-symbols-rounded-icons/menu-book';
 import { displayName, skillPath } from '../school/functions';
 import type { SkillSummary } from '../school/models';
 

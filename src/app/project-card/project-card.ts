@@ -1,9 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import {
-  MsrAnchorIconComponent,
-  MsrCodeIconComponent,
-} from '@captains-chest/material-symbols-rounded-icons';
+import { MsrAnchorIconComponent } from '@captains-chest/material-symbols-rounded-icons/anchor';
+import { MsrCodeIconComponent } from '@captains-chest/material-symbols-rounded-icons/code';
 import type { Project } from '../projects/models';
 
 @Component({

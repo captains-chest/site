@@ -1,8 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
-import {
-  MsrCodeIconComponent,
-  MsrSportsEsportsIconComponent,
-} from '@captains-chest/material-symbols-rounded-icons';
+import { MsrCodeIconComponent } from '@captains-chest/material-symbols-rounded-icons/code';
+import { MsrSportsEsportsIconComponent } from '@captains-chest/material-symbols-rounded-icons/sports-esports';
 import type { Game } from '../games/models';
 
 @Component({
