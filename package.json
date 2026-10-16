@@ -10,7 +10,7 @@
     "preview": "pnpm run build && wrangler dev",
     "check:axe": "node scripts/ci/axe.mjs",
     "check:navigation": "node scripts/ci/navigation.mjs",
-    "check:html": "java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only --filterpattern \".*Attribute \u201c(ngh|ngb|jsaction|routerlink|routerlinkactive|ariacurrentwhenactive|fragment|cc-[a-z-]+|msriconsvg|ng-app-id|_ngcontent-ng-c[0-9]+)\u201d not allowed.*\" --skip-non-html dist/site/browser dist/site/server/index.server.html",
+    "check:html": "java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only --filterpattern \".*Attribute “(ngh|ngb|jsaction|routerlink|routerlinkactive|ariacurrentwhenactive|fragment|cc-[a-z-]+|msriconsvg|ng-app-id|_ngcontent-ng-c[0-9]+)” not allowed.*\" --skip-non-html dist/site/browser dist/site/server/index.server.html",
     "check:lighthouse": "lhci autorun --config=lighthouserc.mobile.json && lhci autorun --config=lighthouserc.desktop.json",
     "content": "node scripts/generate-skills.mjs",
     "format": "vp fmt .",
@@ -29,7 +29,7 @@
     "@angular/platform-server": "^22.2.0",
     "@angular/router": "^22.2.0",
     "@angular/ssr": "^22.2.2",
-    "@captains-chest/material-symbols-rounded-icons": "^2.2.2",
+    "@captains-chest/material-symbols-rounded-icons": "^3.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
@@ -43,8 +43,8 @@
     "marked": "^18.1.0",
     "puppeteer-core": "^25.13.0",
     "typescript": "~6.0.2",
+    "vite-plus": "catalog:",
     "vnu-jar": "^26.10.11",
-    "wrangler": "^4.149.0",
-    "vite-plus": "catalog:"
+    "wrangler": "^4.149.0"
   }
 }
