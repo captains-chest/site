@@ -1,4 +1,4 @@
-// Post-build: make prerendered HTML safe to cache under a static CSP (no per-request nonces).
+// Post-build: make prerendered HTML safe to cache (no nonce attrs on our markup).
 //
 // Beasties emits stylesheet links as media="print" plus an inline swap script. That script (and
 // Angular's event-replay bootstraps) need a matching CSP allow. Per-request nonces cannot be

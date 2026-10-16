@@ -40,17 +40,36 @@ const immutableCache = 'public, max-age=31536000, immutable';
 const htmlCache = 'public, max-age=300, must-revalidate';
 const otherCache = 'public, max-age=86400';
 
-// Static CSP for a prerendered site. Per-request nonces cannot be paired safely with cached HTML:
-// if a browser or prefetch ever reuses a body with a different CSP header, Beasties' media="print"
-// stylesheet never swaps to "all" and every nonce'd inline style is blocked (unstyled page).
-// Scripts are only external modules from this origin; styles may be inline (critical CSS + components).
-const contentSecurityPolicy =
-  "default-src 'self'; script-src 'self' __CSP_SCRIPT_HASHES__; style-src 'self' 'unsafe-inline'; " +
-  "img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; object-src 'none'; " +
-  "base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests";
+// Our scripts use build-time hashes (see scripts/fix-csp-html.mjs); styles are 'unsafe-inline'.
+// We do not put nonces on our HTML: that broke when a cached body met a different CSP header.
+// Cloudflare Bot Management (JS Detections) injects a changing inline script and stamps whatever
+// nonce is in the CSP *header* onto it (https://developers.cloudflare.com/cloudflare-challenges/
+// challenge-types/javascript-detections/). So HTML responses get a header-only nonce for CF,
+// never rewritten into the body. 'self' already covers /cdn-cgi/challenge-platform/*.
+// Web Analytics: exact beacon URL + connect-src per
+// https://developers.cloudflare.com/web-analytics/faq/
+const nonceBytes = 16;
+const createNonce = (): string =>
+  btoa(String.fromCharCode(...crypto.getRandomValues(new Uint8Array(nonceBytes))));
+
+const contentSecurityPolicy = (scriptNonce?: string): string => {
+  const scriptSrc = [
+    "'self'",
+    scriptNonce !== undefined ? `'nonce-${scriptNonce}'` : undefined,
+    '__CSP_SCRIPT_HASHES__',
+    'https://static.cloudflareinsights.com/beacon.min.js',
+  ]
+    .filter((part): part is string => part !== undefined)
+    .join(' ');
+  return (
+    `default-src 'self'; script-src ${scriptSrc}; style-src 'self' 'unsafe-inline'; ` +
+    "img-src 'self' data:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; " +
+    "manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; " +
+    "frame-ancestors 'none'; upgrade-insecure-requests"
+  );
+};
 
 const securityHeaders: Readonly<Record<string, string>> = {
-  'Content-Security-Policy': contentSecurityPolicy,
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
   'X-Content-Type-Options': 'nosniff',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
@@ -89,6 +108,8 @@ const withHeaders = (response: Response, pathname: string): Response => {
   }
   const contentType = headers.get('Content-Type') ?? '';
   const isHtml = contentType.includes('text/html');
+  // Header-only nonce on HTML so Cloudflare can stamp Bot Management's injected script.
+  headers.set('Content-Security-Policy', contentSecurityPolicy(isHtml ? createNonce() : undefined));
   if (response.ok) {
     headers.set('Cache-Control', cacheControlFor(pathname, contentType));
   }
