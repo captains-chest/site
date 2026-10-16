@@ -1,0 +1,37 @@
+<img
+  class="mod-thumb"
+  [src]="software().image.src"
+  [srcset]="software().image.src + ' 1x, ' + software().image.src2x + ' 2x'"
+  [width]="software().image.width"
+  [height]="software().image.height"
+  [alt]="software().image.alt"
+  [attr.loading]="priority() ? null : 'lazy'"
+  [attr.fetchpriority]="priority() ? 'high' : null"
+  decoding="async"
+/>
+<div class="mod-body">
+  <h3 [id]="headingId()">{{ software().name }}</h3>
+  <p class="eyebrow">{{ software().kind }} · by CaptainDuckay</p>
+  <p>{{ software().description }}</p>
+  <ul class="mod-facts">
+    @for (fact of software().facts; track fact) {
+      <li>{{ fact }}</li>
+    }
+  </ul>
+  <div class="links">
+    @if (software().primary.href.startsWith('/')) {
+      <a class="btn primary" [routerLink]="software().primary.href"
+        >{{ software().primary.label }}<span class="sr-only"> ({{ software().name }})</span></a
+      >
+    } @else {
+      <a class="btn primary" [href]="software().primary.href"
+        >{{ software().primary.label }}<span class="sr-only"> ({{ software().name }})</span></a
+      >
+    }
+    @if (software().secondary; as secondary) {
+      <a class="btn" [href]="secondary.href"
+        >{{ secondary.label }}<span class="sr-only"> ({{ software().name }})</span></a
+      >
+    }
+  </div>
+</div>

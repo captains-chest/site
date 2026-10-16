@@ -8,7 +8,7 @@ import type { Game } from '../games/models';
   imports: [MsrSportsEsportsIconComponent, MsrCodeIconComponent],
   templateUrl: './game-card.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'card', '[attr.aria-labelledby]': 'headingId()' },
+  host: { class: 'card mod-card', '[attr.aria-labelledby]': 'headingId()' },
 })
 export class GameCard {
   readonly game = input.required<Game>();

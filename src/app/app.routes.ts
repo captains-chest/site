@@ -66,6 +66,17 @@ export const routes: Routes = [
     }),
   },
   {
+    path: 'software',
+    loadComponent: () => import('./software-page/software-page').then((m) => m.SoftwarePage),
+    title: `Software · ${siteName}`,
+    data: meta({
+      description:
+        'Software by CaptainDuckay: Dictator for macOS, Floor Planner and the Material Symbols Rounded icons for Angular.',
+      path: '/software',
+      breadcrumbs: [home, { name: 'Software', path: '/software' }],
+    }),
+  },
+  {
     path: 'about',
     loadComponent: () => import('./about-page/about-page').then((m) => m.AboutPage),
     title: `${fullName}, frontend developer · ${siteName}`,

@@ -196,6 +196,7 @@ const sitePaths = [
   '/',
   '/play',
   '/mods',
+  '/software',
   '/about',
   '/dictator',
   '/dictator/privacy',
