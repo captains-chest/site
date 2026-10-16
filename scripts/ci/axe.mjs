@@ -37,6 +37,7 @@ for (const { path, status } of pages) {
       if (message.type() === 'error' && !isExpected404) errors.push(message.text());
     });
     await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: scheme }]);
+    await page.setBypassCSP(true);
     const response = await page.goto(baseUrl + path, { waitUntil: 'networkidle0' });
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
     await new Promise((resolve) => setTimeout(resolve, settleMs));
