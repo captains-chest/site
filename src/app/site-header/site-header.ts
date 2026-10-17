@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { type IsActiveMatchOptions, RouterLink, RouterLinkActive } from '@angular/router';
-import { MsrMenuIconComponent } from '@captains-chest/material-symbols-rounded-icons';
+import { MsrMenuIconComponent } from '@captains-chest/material-symbols-rounded-icons/menu';
 import { SiteNav } from '../site-nav/site-nav';
 
 const homeLinkActive: IsActiveMatchOptions = {

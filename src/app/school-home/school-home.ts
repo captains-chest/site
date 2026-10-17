@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { MsrMenuBookIconComponent } from '@captains-chest/material-symbols-rounded-icons';
+import { MsrMenuBookIconComponent } from '@captains-chest/material-symbols-rounded-icons/menu-book';
 import { skillSummaries } from '../../content/generated/catalog';
 import { SchoolCredits } from '../school-credits/school-credits';
 import { tenets } from '../school/content';

@@ -8,7 +8,7 @@ import {
   RESPONSE_INIT,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { MsrCodeIconComponent } from '@captains-chest/material-symbols-rounded-icons';
+import { MsrCodeIconComponent } from '@captains-chest/material-symbols-rounded-icons/code';
 import { SchoolCredits } from '../school-credits/school-credits';
 import { notes, tenets } from '../school/content';
 import { displayName, principlesOf, tenetsCiting } from '../school/functions';

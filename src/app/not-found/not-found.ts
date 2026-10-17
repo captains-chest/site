@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, RESPONSE_INIT } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { MsrAnchorIconComponent } from '@captains-chest/material-symbols-rounded-icons';
+import { MsrAnchorIconComponent } from '@captains-chest/material-symbols-rounded-icons/anchor';
 
 const notFoundStatus = 404;
 

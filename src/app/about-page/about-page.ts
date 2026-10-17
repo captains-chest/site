@@ -1,12 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import {
-  MsrCodeIconComponent,
-  MsrExtensionIconComponent,
-  MsrMenuBookIconComponent,
-  MsrMicIconComponent,
-  MsrSportsEsportsIconComponent,
-} from '@captains-chest/material-symbols-rounded-icons';
+import { MsrCodeIconComponent } from '@captains-chest/material-symbols-rounded-icons/code';
+import { MsrExtensionIconComponent } from '@captains-chest/material-symbols-rounded-icons/extension';
+import { MsrMenuBookIconComponent } from '@captains-chest/material-symbols-rounded-icons/menu-book';
+import { MsrMicIconComponent } from '@captains-chest/material-symbols-rounded-icons/mic';
+import { MsrSportsEsportsIconComponent } from '@captains-chest/material-symbols-rounded-icons/sports-esports';
 import {
   angularNotes,
   employers,
