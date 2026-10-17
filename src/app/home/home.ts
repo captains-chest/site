@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import { MsrAnchorIconComponent } from '@captains-chest/material-symbols-rounded-icons/anchor';
 import { MsrExtensionIconComponent } from '@captains-chest/material-symbols-rounded-icons/extension';
 import { MsrMenuBookIconComponent } from '@captains-chest/material-symbols-rounded-icons/menu-book';
-import { MsrMicIconComponent } from '@captains-chest/material-symbols-rounded-icons/mic';
+import { MsrSailingIconComponent } from '@captains-chest/material-symbols-rounded-icons/sailing';
 import { MsrSportsEsportsIconComponent } from '@captains-chest/material-symbols-rounded-icons/sports-esports';
 import { PortLink } from '../port-link/port-link';
 import { ProjectCard } from '../project-card/project-card';
@@ -18,7 +18,7 @@ import { projects } from '../projects/constants';
     MsrSportsEsportsIconComponent,
     MsrMenuBookIconComponent,
     MsrExtensionIconComponent,
-    MsrMicIconComponent,
+    MsrSailingIconComponent,
     MsrAnchorIconComponent,
   ],
   templateUrl: './home.html',

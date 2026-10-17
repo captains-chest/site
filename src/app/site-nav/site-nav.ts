@@ -4,6 +4,7 @@ import { MsrAnchorIconComponent } from '@captains-chest/material-symbols-rounded
 import { MsrCloseIconComponent } from '@captains-chest/material-symbols-rounded-icons/close';
 import { MsrExtensionIconComponent } from '@captains-chest/material-symbols-rounded-icons/extension';
 import { MsrMenuBookIconComponent } from '@captains-chest/material-symbols-rounded-icons/menu-book';
+import { MsrSailingIconComponent } from '@captains-chest/material-symbols-rounded-icons/sailing';
 import { MsrSportsEsportsIconComponent } from '@captains-chest/material-symbols-rounded-icons/sports-esports';
 
 /** A section link stays active on every page below it, e.g. School on /school/skills/<slug>. */
@@ -21,6 +22,7 @@ const sectionActive: IsActiveMatchOptions = {
     RouterLinkActive,
     MsrSportsEsportsIconComponent,
     MsrExtensionIconComponent,
+    MsrSailingIconComponent,
     MsrMenuBookIconComponent,
     MsrAnchorIconComponent,
     MsrCloseIconComponent,

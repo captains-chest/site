@@ -10,6 +10,7 @@ const pages = [
   { path: '/', status: 200 },
   { path: '/play', status: 200 },
   { path: '/mods', status: 200 },
+  { path: '/software', status: 200 },
   { path: '/about', status: 200 },
   { path: '/dictator', status: 200 },
   { path: '/dictator/privacy', status: 200 },

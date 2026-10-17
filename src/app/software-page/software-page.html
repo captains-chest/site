@@ -1,0 +1,13 @@
+<header>
+  <p class="eyebrow">Captain's Chest · Software</p>
+  <h1>The Shipyard</h1>
+  <p class="lead">Apps and libraries built and launched by CaptainDuckay.</p>
+</header>
+<section aria-labelledby="software-heading">
+  <h2 id="software-heading" class="eyebrow">Software</h2>
+  <ul class="stack plain-list">
+    @for (item of software; track item.slug; let first = $first) {
+      <li><article cc-software-card [software]="item" [priority]="first"></article></li>
+    }
+  </ul>
+</section>

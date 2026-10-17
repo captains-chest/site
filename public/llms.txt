@@ -6,10 +6,12 @@
 
 - [Material Symbols Rounded Icons](https://github.com/captains-chest/material-symbols-rounded-icons): Publishable Angular standalone component libraries for Material Symbols Rounded icons, in outline and filled variants, with a Storybook catalog.
 - [Dictator](https://captains-chest.com/dictator): Minimal, local-only dictation for macOS, transcribed on-device.
+- [Floor Planner](https://floor-planner.captains-chest.com): A browser floor-planning tool: import a plan, scale it from a known length, place furniture. Stored locally.
 
 ## More
 
 - [About](https://captains-chest.com/about): Nicki Skipper Otte (CaptainDuckay), frontend developer in Denmark and the maker of Captain's Chest.
 - [Playground](https://captains-chest.com/play): browser games.
+- [Software](https://captains-chest.com/software): Dictator for macOS, Floor Planner in the browser, and Material Symbols Rounded icons for Angular.
 - [Mods](https://captains-chest.com/mods): game mods, such as a Danish voice pack for XCOM 2: War of the Chosen.
 - [School of the Captain's Chest](https://captains-chest.com/school): the agent skills that describe how Captain's Chest codes and works.

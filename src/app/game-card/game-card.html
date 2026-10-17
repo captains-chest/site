@@ -1,10 +1,22 @@
-<h3 [id]="headingId()">{{ game().name }}</h3>
-<p>{{ game().description }}</p>
-<div class="links">
-  <a class="btn primary" [href]="game().playUrl"
-    ><msr-sports-esports-icon />Play<span class="sr-only"> {{ game().name }}</span></a
-  >
-  <a class="btn" [href]="game().sourceUrl"
-    ><msr-code-icon />GitHub<span class="sr-only"> ({{ game().name }})</span></a
-  >
+<img
+  class="mod-thumb"
+  [src]="game().image.src"
+  [srcset]="game().image.src + ' 1x, ' + game().image.src2x + ' 2x'"
+  [width]="game().image.width"
+  [height]="game().image.height"
+  [alt]="game().image.alt"
+  loading="lazy"
+  decoding="async"
+/>
+<div class="mod-body">
+  <h3 [id]="headingId()">{{ game().name }}</h3>
+  <p>{{ game().description }}</p>
+  <div class="links">
+    <a class="btn primary" [href]="game().playUrl"
+      ><msr-sports-esports-icon />Play<span class="sr-only"> {{ game().name }}</span></a
+    >
+    <a class="btn" [href]="game().sourceUrl"
+      ><msr-code-icon />GitHub<span class="sr-only"> ({{ game().name }})</span></a
+    >
+  </div>
 </div>
